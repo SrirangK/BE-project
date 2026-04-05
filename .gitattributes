@@ -1,0 +1,4 @@
+backend/artifacts/*.csv filter=lfs diff=lfs merge=lfs -text
+backend/artifacts/*.npy filter=lfs diff=lfs merge=lfs -text
+backend/artifacts/*.pkl filter=lfs diff=lfs merge=lfs -text
+backend/artifacts/faiss_clusters/*.index filter=lfs diff=lfs merge=lfs -text

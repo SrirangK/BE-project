@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    container_name: paper_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      # - S2_API_KEY=${S2_API_KEY}
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: paper_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

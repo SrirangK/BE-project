@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Env/secrets
+.env
+.env.*
+!.env.example
+
+# Node/build
+node_modules/
+dist/
+build/
+
+# Artifacts / large files
+artifacts/
+*.npy
+*.pkl
+*.index
+faiss_clusters/
+sbert_cache/
+kmeans_model.pkl
+cluster_mappings.pkl
+sbert_embeddings.npy
+arxiv_cleaned.csv

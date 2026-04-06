@@ -1,20 +1,35 @@
 version: "3.9"
+
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: paper_backend
     ports:
       - "8000:8000"
     environment:
       - PYTHONUNBUFFERED=1
+      - HF_HOME=/app/hf_cache
+      - TRANSFORMERS_CACHE=/app/hf_cache
+      # Optional (recommended for higher HF rate limits):
+      # - HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
+      # Optional Semantic Scholar key:
       # - S2_API_KEY=${S2_API_KEY}
+    volumes:
+      - hf_cache:/app/hf_cache
     restart: unless-stopped
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: paper_frontend
     ports:
       - "3000:80"
     depends_on:
       - backend
     restart: unless-stopped
+
+volumes:
+  hf_cache:

@@ -2,11 +2,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any, Literal
+from difflib import SequenceMatcher
 import requests
 import re
 import uuid
 import threading
 import os
+from local_recommender import init_local_recommender, recommend_local
 
 S2_BASE = "https://api.semanticscholar.org"
 S2_API_KEY = os.getenv("S2_API_KEY")
@@ -26,22 +28,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-def recommend_local(query: str, top_k: int = 5):
-    return {
-        "cluster_id": 0,
-        "cluster_keywords": ["demo", "placeholder"],
-        "results": [
-            {
-                "source": "local",
-                "title": f"Local result {i} for: {query}",
-                "relevance_score": round(0.9 - i * 0.05, 4),
-                "citations": None,
-                "author_h_index": None
-            }
-            for i in range(1, top_k + 1)
-        ]
-    }
 
 class PaperCard(BaseModel):
     source: Literal["local", "web_bulk", "seed_reco"]
@@ -73,6 +59,15 @@ class SeedRequest(BaseModel):
 class SeedResponse(BaseModel):
     resolved_method: str
     resolved_paper_id: Optional[str]
+    sectionC: List[PaperCard]
+    error: Optional[str] = None
+
+class RefineSelectedRequest(BaseModel):
+    positive_paper_ids: List[str]
+    limit: int = 10
+
+class RefineSelectedResponse(BaseModel):
+    used_paper_ids: List[str]
     sectionC: List[PaperCard]
     error: Optional[str] = None
 
@@ -132,37 +127,96 @@ def extract_doi(text: str):
     m = re.search(r"\b10\.\d{4,9}/[-._;()/:A-Z0-9]+\b", text, flags=re.I)
     return m.group(0) if m else None
 
+def _norm(s: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9\s]", " ", s.lower())).strip()
+
+def _sim(a: str, b: str) -> float:
+    return SequenceMatcher(None, _norm(a), _norm(b)).ratio()
+
+def _title_variants(s: str) -> List[str]:
+    base = re.sub(r"\s+", " ", s).strip()
+    no_quotes = base.strip("\"'")
+    no_trailing_year = re.sub(r"\s*\(?\b(19|20)\d{2}\b\)?\s*$", "", no_quotes).strip()
+
+    variants = [base, no_quotes, no_trailing_year]
+    seen = set()
+    ordered = []
+    for v in variants:
+        if v and v not in seen:
+            seen.add(v)
+            ordered.append(v)
+    return ordered
+
 def resolve_seed_to_paper_id(seed_input: str):
     s = seed_input.strip()
 
+    # 1) Paper URL
     pid = extract_paper_id_from_semanticscholar_url(s)
     if pid:
-        return {"paperId": pid, "method": "semantic_scholar_url"}
+        return {"paperId": pid, "method": "paper_url"}
 
+    # 2) DOI
     doi = extract_doi(s)
     if doi:
         try:
-            d = _s2_get(f"/graph/v1/paper/DOI:{doi}", params={"fields": "paperId"})
-            return {"paperId": d.get("paperId"), "method": "doi_lookup"}
+            d = _s2_get(f"/graph/v1/paper/DOI:{doi}", params={"fields": "paperId,title,year"})
+            if d.get("paperId"):
+                return {"paperId": d["paperId"], "method": "doi_lookup"}
         except Exception:
             pass
 
+    # 3) arXiv
     ax = extract_arxiv_id(s)
     if ax:
         try:
-            d = _s2_get(f"/graph/v1/paper/ARXIV:{ax}", params={"fields": "paperId"})
-            return {"paperId": d.get("paperId"), "method": "arxiv_lookup"}
+            d = _s2_get(f"/graph/v1/paper/ARXIV:{ax}", params={"fields": "paperId,title,year"})
+            if d.get("paperId"):
+                return {"paperId": d["paperId"], "method": "arxiv_lookup"}
         except Exception:
             pass
 
+    # 4) direct paper id
     if re.fullmatch(r"[a-f0-9]{40}", s.lower()):
         return {"paperId": s.lower(), "method": "direct_paperid"}
 
+    # 5) robust title search
+    # First try exact title matcher, then fuzzy search fallback.
     try:
-        d = _s2_get("/graph/v1/paper/search", params={"query": s, "limit": 1, "fields": "paperId"})
-        items = d.get("data", [])
-        if items:
-            return {"paperId": items[0].get("paperId"), "method": "title_search"}
+        for q in _title_variants(s):
+            try:
+                m = _s2_get(
+                    "/graph/v1/paper/search/match",
+                    params={"query": q, "fields": "paperId,title,year,url"}
+                )
+                if m.get("paperId"):
+                    return {"paperId": m["paperId"], "method": "title_match"}
+            except Exception:
+                pass
+
+            d = _s2_get(
+                "/graph/v1/paper/search",
+                params={"query": q, "limit": 10, "fields": "paperId,title,year,url"}
+            )
+            items = d.get("data", [])
+            if not items:
+                continue
+
+            # Choose best fuzzy title match.
+            scored = []
+            for it in items:
+                t = it.get("title") or ""
+                scored.append((_sim(q, t), it))
+
+            scored.sort(key=lambda x: x[0], reverse=True)
+            best_score, best = scored[0]
+
+            # Relaxed threshold; tune if needed.
+            if best.get("paperId") and best_score >= 0.40:
+                return {"paperId": best["paperId"], "method": f"title_search_fuzzy:{best_score:.2f}"}
+
+            # Fallback: top result anyway.
+            if items[0].get("paperId"):
+                return {"paperId": items[0]["paperId"], "method": "title_search_top1"}
     except Exception:
         pass
 
@@ -207,6 +261,10 @@ def run_bulk_job(job_id: str, query: str, year_from: int, limit: int):
     except Exception as e:
         set_job_failed(job_id, str(e))
 
+@app.on_event("startup")
+def startup_event():
+    init_local_recommender()
+
 @app.get("/api/recommend", response_model=RecommendResponse)
 def recommend(query: str, top_k: int = 5, year_from: int = 2023, web_limit: int = WEB_TOP_K_DEFAULT):
     local = recommend_local(query, top_k=top_k)
@@ -235,6 +293,29 @@ def recommend_seed(req: SeedRequest):
     cards = [map_s2_paper_to_card(p, "seed_reco") for p in papers]
     cards = enrich_author_hindex(cards, papers)
     return SeedResponse(resolved_method=resolved["method"], resolved_paper_id=pid, sectionC=[PaperCard(**x) for x in cards], error=None)
+
+@app.post("/api/recommend/refine-selected", response_model=RefineSelectedResponse)
+def refine_selected(req: RefineSelectedRequest):
+    cleaned = []
+    seen = set()
+    for pid in req.positive_paper_ids:
+        p = (pid or "").strip().lower()
+        if re.fullmatch(r"[a-f0-9]{40}", p) and p not in seen:
+            seen.add(p)
+            cleaned.append(p)
+
+    if not cleaned:
+        return RefineSelectedResponse(used_paper_ids=[], sectionC=[], error="Select at least one valid paper with a paper ID.")
+
+    d = _s2_post(
+        "/recommendations/v1/papers",
+        params={"limit": req.limit, "fields": "paperId,title,year,abstract,url,citationCount,authors,openAccessPdf"},
+        payload={"positivePaperIds": cleaned[:10]}
+    )
+    papers = d.get("recommendedPapers", [])
+    cards = [map_s2_paper_to_card(p, "seed_reco") for p in papers]
+    cards = enrich_author_hindex(cards, papers)
+    return RefineSelectedResponse(used_paper_ids=cleaned[:10], sectionC=[PaperCard(**x) for x in cards], error=None)
 
 @app.get("/health")
 def health():

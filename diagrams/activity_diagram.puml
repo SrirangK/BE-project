@@ -1,0 +1,72 @@
+@startuml activity_diagram
+start
+:User opens web interface;
+:User enters query text;
+
+if (Query valid?\n(non-empty, <500 chars)) then (yes)
+
+  fork
+    partition "Section A: Local Retrieval (Sync)" {
+      :Encode query with\nTF-IDF vectorizer;
+      :Encode query with\nSPECTER model;
+      :Compute similarity with\n152 cluster centroids;
+      :Select top-3\nmost similar clusters;
+      :Search FAISS indices\nin selected clusters;
+      :Retrieve k*5 candidates;
+      :Compute hybrid scores:\n0.70*semantic + 0.30*tfidf;
+      :Rank by score descending;
+      :Return top-k papers;
+      :Display Section A results;
+    }
+  fork again
+    partition "Section B: Web Search (Async)" {
+      :Create background job;
+      :Set job status = "pending";
+      :Query Semantic Scholar API;
+      :Set job status = "running";
+
+      while (Job complete?) is (no)
+        :Frontend polls status\nevery 2 seconds;
+      endwhile (yes)
+
+      :Set job status = "completed";
+      :Retrieve web results;
+      :Display Section B results;
+    }
+  end fork
+
+  :User reviews results\nfrom Sections A and B;
+
+  if (User wants to refine?) then (yes)
+    partition "Section C: Refinement" {
+      :User selects exemplar papers\nvia checkboxes;
+      :User clicks\n"Refine Recommendations";
+      :Resolve paper identifiers;
+
+      if (URL provided?) then (yes)
+        :Extract Semantic Scholar ID;
+      elseif (DOI provided?) then (yes)
+        :Query S2 API by DOI;
+      elseif (arXiv ID provided?) then (yes)
+        :Query S2 API by arXiv ID;
+      else (title only)
+        :Fuzzy title matching\n(threshold = 0.40);
+      endif
+
+      :Submit resolved IDs to\nS2 recommendations API;
+      :Retrieve refined papers;
+      :Display Section C results;
+    }
+  else (no)
+    :User closes or\nsubmits new query;
+  endif
+
+else (no)
+  :Display validation error\nmessage to user;
+  stop
+endif
+
+:End;
+stop
+
+@enduml

@@ -1,0 +1,48 @@
+@startuml use_case_diagram
+left to right direction
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+
+actor "Researcher\n(User)" as user
+actor "Semantic\nScholar API" as s2
+
+rectangle "Hybrid Paper Recommendation System" {
+  usecase "UC1:\nSubmit Query" as UC1
+  usecase "UC2:\nView Local\nRecommendations" as UC2
+  usecase "UC3:\nView Web\nRecommendations" as UC3
+  usecase "UC4:\nSelect Papers\nfor Refinement" as UC4
+  usecase "UC5:\nRefine\nRecommendations" as UC5
+  usecase "UC6:\nView Paper\nDetails" as UC6
+}
+
+user --> UC1
+user --> UC2
+user --> UC3
+user --> UC4
+user --> UC5
+user --> UC6
+
+UC1 ..> UC2 : <<include>>
+UC1 ..> UC3 : <<include>>
+UC4 ..> UC5 : <<extend>>
+
+UC3 --> s2 : queries
+UC5 --> s2 : queries
+
+note right of UC1
+  User enters research
+  query and submits
+end note
+
+note right of UC5
+  Interactive refinement
+  based on selected
+  exemplar papers
+end note
+
+note bottom of UC3
+  Asynchronous web search
+  runs in background
+end note
+
+@enduml

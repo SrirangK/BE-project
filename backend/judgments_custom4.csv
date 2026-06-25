@@ -1,0 +1,1669 @@
+query_id,query_source_doc_index,query_source_title,query_text,system,rank,result_doc_index,result_title,result_abstract,score,latency_ms,label
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,1,38866,Gated Graph Recursive Neural Networks for Molecular Property Prediction,"Molecule property prediction is a fundamental problem for computer-aided drug
+discovery and materials science. Quantum-chemical simulations such as density
+functional theory (DFT) have been widely used for calculating the molecule
+properties, however, because of the heavy computational cost, it is difficult
+to search a huge number of potential chemical compounds. Machine learning
+methods for molecular modeling are attractive alternatives, however, the
+development of expressive, accurate, and scalable graph neural networks for
+learning molecular representations is still challenging. In this work, we
+propose a simple and powerful graph neural networks for molecular property
+prediction. We model a molecular as a directed complete graph in which each
+atom has a spatial position, and introduce a recursive neural network with
+simple gating function. We also feed input embeddings for every layers as skip
+connections to accelerate the training. Experimental results show that our
+model achieves the state-of-the-art performance on the standard benchmark
+dataset for molecular property prediction.",0.7092,184.471131,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,2,18935,Learn molecular representations from large-scale unlabeled molecules for drug discovery,"How to produce expressive molecular representations is a fundamental
+challenge in AI-driven drug discovery. Graph neural network (GNN) has emerged
+as a powerful technique for modeling molecular data. However, previous
+supervised approaches usually suffer from the scarcity of labeled data and have
+poor generalization capability. Here, we proposed a novel Molecular
+Pre-training Graph-based deep learning framework, named MPG, that leans
+molecular representations from large-scale unlabeled molecules. In MPG, we
+proposed a powerful MolGNet model and an effective self-supervised strategy for
+pre-training the model at both the node and graph-level. After pre-training on
+11 million unlabeled molecules, we revealed that MolGNet can capture valuable
+chemistry insights to produce interpretable representation. The pre-trained
+MolGNet can be fine-tuned with just one additional output layer to create
+state-of-the-art models for a wide range of drug discovery tasks, including
+molecular properties prediction, drug-drug interaction, and drug-target
+interaction, involving 13 benchmark datasets. Our work demonstrates that MPG is
+promising to become a novel approach in the drug discovery pipeline.",0.6828,184.471131,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,3,2215,MolCLR: Molecular Contrastive Learning of Representations via Graph Neural Networks,"Molecular machine learning bears promise for efficient molecule property
+prediction and drug discovery. However, due to the limited labeled data and the
+giant chemical space, machine learning models trained via supervised learning
+perform poorly in generalization. This greatly limits the applications of
+machine learning methods for molecular design and discovery. In this work, we
+present MolCLR: Molecular Contrastive Learning of Representations via Graph
+Neural Networks (GNNs), a self-supervised learning framework for large
+unlabeled molecule datasets. Specifically, we first build a molecular graph,
+where each node represents an atom and each edge represents a chemical bond. A
+GNN is then used to encode the molecule graph. We propose three novel molecule
+graph augmentations: atom masking, bond deletion, and subgraph removal. A
+contrastive estimator is utilized to maximize the agreement of different graph
+augmentations from the same molecule. Experiments show that molecule
+representations learned by MolCLR can be transferred to multiple downstream
+molecular property prediction tasks. Our method thus achieves state-of-the-art
+performance on many challenging datasets. We also prove the efficiency of our
+proposed molecule graph augmentations on supervised molecular classification
+tasks.",0.6717,184.471131,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,4,38936,Learning Graph-Level Representation for Drug Discovery,"Predicating macroscopic influences of drugs on human body, like efficacy and
+toxicity, is a central problem of small-molecule based drug discovery.
+Molecules can be represented as an undirected graph, and we can utilize graph
+convolution networks to predication molecular properties. However, graph
+convolutional networks and other graph neural networks all focus on learning
+node-level representation rather than graph-level representation. Previous
+works simply sum all feature vectors for all nodes in the graph to obtain the
+graph feature vector for drug predication. In this paper, we introduce a dummy
+super node that is connected with all nodes in the graph by a directed edge as
+the representation of the graph and modify the graph operation to help the
+dummy super node learn graph-level feature. Thus, we can handle graph-level
+classification and regression in the same way as node-level classification and
+regression. In addition, we apply focal loss to address class imbalance in drug
+datasets. The experiments on MoleculeNet show that our method can effectively
+improve the performance of molecular properties predication.",0.6634,184.471131,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,5,2869,Towards Interpretable Sparse Graph Representation Learning with Laplacian Pooling,"Recent work in graph neural networks (GNNs) has led to improvements in
+molecular activity and property prediction tasks. Unfortunately, GNNs often
+fail to capture the relative importance of interactions between molecular
+substructures, in part due to the absence of efficient intermediate pooling
+steps. To address these issues, we propose LaPool (Laplacian Pooling), a novel,
+data-driven, and interpretable hierarchical graph pooling method that takes
+into account both node features and graph structure to improve molecular
+representation. We benchmark LaPool on molecular graph prediction and
+understanding tasks and show that it outperforms recent GNNs. Interestingly,
+LaPool also remains competitive on non-molecular tasks. Both quantitative and
+qualitative assessments are done to demonstrate LaPool's improved
+interpretability and highlight its potential benefits in drug design. Finally,
+we demonstrate LaPool's utility for the generation of valid and novel molecules
+by incorporating it into an adversarial autoencoder.",0.6584,184.471131,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,6,10519,Artificial Intelligence in Drug Discovery: Applications and Techniques,"Artificial intelligence (AI) has been transforming the practice of drug
+discovery in the past decade. Various AI techniques have been used in a wide
+range of applications, such as virtual screening and drug design. In this
+survey, we first give an overview on drug discovery and discuss related
+applications, which can be reduced to two major tasks, i.e., molecular property
+prediction and molecule generation. We then discuss common data resources,
+molecule representations and benchmark platforms. Furthermore, to summarize the
+progress of AI in drug discovery, we present the relevant AI techniques
+including model architectures and learning paradigms in the papers surveyed. We
+expect that this survey will serve as a guide for researchers who are
+interested in working at the interface of artificial intelligence and drug
+discovery. We also provide a GitHub repository
+(https://github.com/dengjianyuan/Survey_AI_Drug_Discovery) with the collection
+of papers and codes, if applicable, as a learning resource, which is regularly
+updated.",0.6572,184.471131,0
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,7,19896,MoFlow: An Invertible Flow Model for Generating Molecular Graphs,"Generating molecular graphs with desired chemical properties driven by deep
+graph generative models provides a very promising way to accelerate drug
+discovery process. Such graph generative models usually consist of two steps:
+learning latent representations and generation of molecular graphs. However, to
+generate novel and chemically-valid molecular graphs from latent
+representations is very challenging because of the chemical constraints and
+combinatorial complexity of molecular graphs. In this paper, we propose MoFlow,
+a flow-based graph generative model to learn invertible mappings between
+molecular graphs and their latent representations. To generate molecular
+graphs, our MoFlow first generates bonds (edges) through a Glow based model,
+then generates atoms (nodes) given bonds by a novel graph conditional flow, and
+finally assembles them into a chemically valid molecular graph with a posthoc
+validity correction. Our MoFlow has merits including exact and tractable
+likelihood training, efficient one-pass embedding and generation, chemical
+validity guarantees, 100\% reconstruction of training data, and good
+generalization ability. We validate our model by four tasks: molecular graph
+generation and reconstruction, visualization of the continuous latent space,
+property optimization, and constrained property optimization. Our MoFlow
+achieves state-of-the-art performance, which implies its potential efficiency
+and effectiveness to explore large chemical space for drug discovery.",0.6539,184.471131,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,8,17763,On Graph Neural Network Ensembles for Large-Scale Molecular Property Prediction,"In order to advance large-scale graph machine learning, the Open Graph
+Benchmark Large Scale Challenge (OGB-LSC) was proposed at the KDD Cup 2021. The
+PCQM4M-LSC dataset defines a molecular HOMO-LUMO property prediction task on
+about 3.8M graphs. In this short paper, we show our current work-in-progress
+solution which builds an ensemble of three graph neural networks models based
+on GIN, Bayesian Neural Networks and DiffPool. Our approach outperforms the
+provided baseline by 7.6%. Moreover, using uncertainty in our ensemble's
+prediction, we can identify molecules whose HOMO-LUMO gaps are harder to
+predict (with Pearson's correlation of 0.5181). We anticipate that this will
+facilitate active learning.",0.6468,184.471131,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,9,23970,Path-Augmented Graph Transformer Network,"Much of the recent work on learning molecular representations has been based
+on Graph Convolution Networks (GCN). These models rely on local aggregation
+operations and can therefore miss higher-order graph properties. To remedy
+this, we propose Path-Augmented Graph Transformer Networks (PAGTN) that are
+explicitly built on longer-range dependencies in graph-structured data.
+Specifically, we use path features in molecular graphs to create global
+attention layers. We compare our PAGTN model against the GCN model and show
+that our model consistently outperforms GCNs on molecular property prediction
+datasets including quantum chemistry (QM7, QM8, QM9), physical chemistry (ESOL,
+Lipophilictiy) and biochemistry (BACE, BBBP).",0.6467,184.471131,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,hybrid_clustered_faiss,10,38868,Analyzing Learned Molecular Representations for Property Prediction,"Advancements in neural machinery have led to a wide range of algorithmic
+solutions for molecular property prediction. Two classes of models in
+particular have yielded promising results: neural networks applied to computed
+molecular fingerprints or expert-crafted descriptors, and graph convolutional
+neural networks that construct a learned molecular representation by operating
+on the graph structure of the molecule. However, recent literature has yet to
+clearly determine which of these two methods is superior when generalizing to
+new chemical space. Furthermore, prior research has rarely examined these new
+models in industry research settings in comparison to existing employed models.
+In this paper, we benchmark models extensively on 19 public and 16 proprietary
+industrial datasets spanning a wide variety of chemical endpoints. In addition,
+we introduce a graph convolutional model that consistently matches or
+outperforms models using fixed molecular descriptors as well as previous graph
+neural architectures on both public and proprietary datasets. Our empirical
+findings indicate that while approaches based on these representations have yet
+to reach the level of experimental reproducibility, our proposed model
+nevertheless offers significant improvements over models currently used in
+industrial workflows.",0.6465,184.471131,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,1,2704,Graph Neural Networks for the Prediction of Substrate-Specific Organic Reaction Conditions,"We present a systematic investigation using graph neural networks (GNNs) to
+model organic chemical reactions. To do so, we prepared a dataset collection of
+four ubiquitous reactions from the organic chemistry literature. We evaluate
+seven different GNN architectures for classification tasks pertaining to the
+identification of experimental reagents and conditions. We find that models are
+able to identify specific graph features that affect reaction conditions and
+lead to accurate predictions. The results herein show great promise in
+advancing molecular machine learning.",0.814505756,720.239643,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,2,2632,PiNet: Attention Pooling for Graph Classification,"We propose PiNet, a generalised differentiable attention-based pooling
+mechanism for utilising graph convolution operations for graph level
+classification. We demonstrate high sample efficiency and superior performance
+over other graph neural networks in distinguishing isomorphic graph classes, as
+well as competitive results with state of the art methods on standard
+chemo-informatics datasets.",0.811378121,720.239643,0
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,3,23970,Path-Augmented Graph Transformer Network,"Much of the recent work on learning molecular representations has been based
+on Graph Convolution Networks (GCN). These models rely on local aggregation
+operations and can therefore miss higher-order graph properties. To remedy
+this, we propose Path-Augmented Graph Transformer Networks (PAGTN) that are
+explicitly built on longer-range dependencies in graph-structured data.
+Specifically, we use path features in molecular graphs to create global
+attention layers. We compare our PAGTN model against the GCN model and show
+that our model consistently outperforms GCNs on molecular property prediction
+datasets including quantum chemistry (QM7, QM8, QM9), physical chemistry (ESOL,
+Lipophilictiy) and biochemistry (BACE, BBBP).",0.783609867,720.239643,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,4,2215,MolCLR: Molecular Contrastive Learning of Representations via Graph Neural Networks,"Molecular machine learning bears promise for efficient molecule property
+prediction and drug discovery. However, due to the limited labeled data and the
+giant chemical space, machine learning models trained via supervised learning
+perform poorly in generalization. This greatly limits the applications of
+machine learning methods for molecular design and discovery. In this work, we
+present MolCLR: Molecular Contrastive Learning of Representations via Graph
+Neural Networks (GNNs), a self-supervised learning framework for large
+unlabeled molecule datasets. Specifically, we first build a molecular graph,
+where each node represents an atom and each edge represents a chemical bond. A
+GNN is then used to encode the molecule graph. We propose three novel molecule
+graph augmentations: atom masking, bond deletion, and subgraph removal. A
+contrastive estimator is utilized to maximize the agreement of different graph
+augmentations from the same molecule. Experiments show that molecule
+representations learned by MolCLR can be transferred to multiple downstream
+molecular property prediction tasks. Our method thus achieves state-of-the-art
+performance on many challenging datasets. We also prove the efficiency of our
+proposed molecule graph augmentations on supervised molecular classification
+tasks.",0.779295981,720.239643,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,5,17763,On Graph Neural Network Ensembles for Large-Scale Molecular Property Prediction,"In order to advance large-scale graph machine learning, the Open Graph
+Benchmark Large Scale Challenge (OGB-LSC) was proposed at the KDD Cup 2021. The
+PCQM4M-LSC dataset defines a molecular HOMO-LUMO property prediction task on
+about 3.8M graphs. In this short paper, we show our current work-in-progress
+solution which builds an ensemble of three graph neural networks models based
+on GIN, Bayesian Neural Networks and DiffPool. Our approach outperforms the
+provided baseline by 7.6%. Moreover, using uncertainty in our ensemble's
+prediction, we can identify molecules whose HOMO-LUMO gaps are harder to
+predict (with Pearson's correlation of 0.5181). We anticipate that this will
+facilitate active learning.",0.779099822,720.239643,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,6,38868,Analyzing Learned Molecular Representations for Property Prediction,"Advancements in neural machinery have led to a wide range of algorithmic
+solutions for molecular property prediction. Two classes of models in
+particular have yielded promising results: neural networks applied to computed
+molecular fingerprints or expert-crafted descriptors, and graph convolutional
+neural networks that construct a learned molecular representation by operating
+on the graph structure of the molecule. However, recent literature has yet to
+clearly determine which of these two methods is superior when generalizing to
+new chemical space. Furthermore, prior research has rarely examined these new
+models in industry research settings in comparison to existing employed models.
+In this paper, we benchmark models extensively on 19 public and 16 proprietary
+industrial datasets spanning a wide variety of chemical endpoints. In addition,
+we introduce a graph convolutional model that consistently matches or
+outperforms models using fixed molecular descriptors as well as previous graph
+neural architectures on both public and proprietary datasets. Our empirical
+findings indicate that while approaches based on these representations have yet
+to reach the level of experimental reproducibility, our proposed model
+nevertheless offers significant improvements over models currently used in
+industrial workflows.",0.778244734,720.239643,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,7,24055,Graph Convolution: A High-Order and Adaptive Approach,"In this paper, we presented a novel convolutional neural network framework
+for graph modeling, with the introduction of two new modules specially designed
+for graph-structured data: the $k$-th order convolution operator and the
+adaptive filtering module. Importantly, our framework of High-order and
+Adaptive Graph Convolutional Network (HA-GCN) is a general-purposed
+architecture that fits various applications on both node and graph centrics, as
+well as graph generative models. We conducted extensive experiments on
+demonstrating the advantages of our framework. Particularly, our HA-GCN
+outperforms the state-of-the-art models on node classification and molecule
+property prediction tasks. It also generates 32% more real molecules on the
+molecule generation task, both of which will significantly benefit real-world
+applications such as material design and drug screening.",0.778221846,720.239643,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,8,19584,Weisfeiler-Lehman Embedding for Molecular Graph Neural Networks,"A graph neural network (GNN) is a good choice for predicting the chemical
+properties of molecules. Compared with other deep networks, however, the
+current performance of a GNN is limited owing to the ""curse of depth."" Inspired
+by long-established feature engineering in the field of chemistry, we expanded
+an atom representation using Weisfeiler-Lehman (WL) embedding, which is
+designed to capture local atomic patterns dominating the chemical properties of
+a molecule. In terms of representability, we show WL embedding can replace the
+first two layers of ReLU GNN -- a normal embedding and a hidden GNN layer --
+with a smaller weight norm. We then demonstrate that WL embedding consistently
+improves the empirical performance over multiple GNN architectures and several
+molecular graph datasets.",0.777594984,720.239643,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,9,19054,HydroNet: Benchmark Tasks for Preserving Intermolecular Interactions and Structural Motifs in Predictive and Generative Models for Molecular Data,"Intermolecular and long-range interactions are central to phenomena as
+diverse as gene regulation, topological states of quantum materials,
+electrolyte transport in batteries, and the universal solvation properties of
+water. We present a set of challenge problems for preserving intermolecular
+interactions and structural motifs in machine-learning approaches to chemical
+problems, through the use of a recently published dataset of 4.95 million water
+clusters held together by hydrogen bonding interactions and resulting in longer
+range structural patterns. The dataset provides spatial coordinates as well as
+two types of graph representations, to accommodate a variety of
+machine-learning practices.",0.769391775,720.239643,0
+0,,,graph neural networks to molecular property prediction for drug discovery.,semantic_fullscan,10,24050,Graph Memory Networks for Molecular Activity Prediction,"Molecular activity prediction is critical in drug design. Machine learning
+techniques such as kernel methods and random forests have been successful for
+this task. These models require fixed-size feature vectors as input while the
+molecules are variable in size and structure. As a result, fixed-size
+fingerprint representation is poor in handling substructures for large
+molecules. In addition, molecular activity tests, or a so-called BioAssays, are
+relatively small in the number of tested molecules due to its complexity. Here
+we approach the problem through deep neural networks as they are flexible in
+modeling structured data such as grids, sequences and graphs. We train multiple
+BioAssays using a multi-task learning framework, which combines information
+from multiple sources to improve the performance of prediction, especially on
+small datasets. We propose Graph Memory Network (GraphMem), a memory-augmented
+neural network to model the graph structure in molecules. GraphMem consists of
+a recurrent controller coupled with an external memory whose cells dynamically
+interact and change through a multi-hop reasoning process. Applied to the
+molecules, the dynamic interactions enable an iterative refinement of the
+representation of molecular graphs with multiple bond types. GraphMem is
+capable of jointly training on multiple datasets by using a specific-task query
+fed to the controller as an input. We demonstrate the effectiveness of the
+proposed model for separately and jointly training on more than 100K
+measurements, spanning across 9 BioAssay activity tests.",0.768056333,720.239643,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,1,18700,Few-Shot Graph Learning for Molecular Property Prediction,"The recent success of graph neural networks has significantly boosted
+molecular property prediction, advancing activities such as drug discovery. The
+existing deep neural network methods usually require large training dataset for
+each property, impairing their performances in cases (especially for new
+molecular properties) with a limited amount of experimental data, which are
+common in real situations. To this end, we propose Meta-MGNN, a novel model for
+few-shot molecular property prediction. Meta-MGNN applies molecular graph
+neural network to learn molecular representation and builds a meta-learning
+framework for model optimization. To exploit unlabeled molecular information
+and address task heterogeneity of different molecular properties, Meta-MGNN
+further incorporates molecular structure, attribute based self-supervised
+modules and self-attentive task weights into the former framework,
+strengthening the whole learning model. Extensive experiments on two public
+multi-property datasets demonstrate that Meta-MGNN outperforms a variety of
+state-of-the-art methods.",0.596477826,64.146342,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,2,38866,Gated Graph Recursive Neural Networks for Molecular Property Prediction,"Molecule property prediction is a fundamental problem for computer-aided drug
+discovery and materials science. Quantum-chemical simulations such as density
+functional theory (DFT) have been widely used for calculating the molecule
+properties, however, because of the heavy computational cost, it is difficult
+to search a huge number of potential chemical compounds. Machine learning
+methods for molecular modeling are attractive alternatives, however, the
+development of expressive, accurate, and scalable graph neural networks for
+learning molecular representations is still challenging. In this work, we
+propose a simple and powerful graph neural networks for molecular property
+prediction. We model a molecular as a directed complete graph in which each
+atom has a spatial position, and introduce a recursive neural network with
+simple gating function. We also feed input embeddings for every layers as skip
+connections to accelerate the training. Experimental results show that our
+model achieves the state-of-the-art performance on the standard benchmark
+dataset for molecular property prediction.",0.577039955,64.146342,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,3,17643,Property-aware Adaptive Relation Networks for Molecular Property Prediction,"Molecular property prediction plays a fundamental role in drug discovery to
+discover candidate molecules with target properties. However, molecular
+property prediction is essentially a few-shot problem which makes it hard to
+obtain regular models. In this paper, we propose a property-aware adaptive
+relation networks (PAR) for the few-shot molecular property prediction problem.
+In comparison to existing works, we leverage the facts that both substructures
+and relationships among molecules are different considering various molecular
+properties. Our PAR is compatible with existing graph-based molecular encoders,
+and are further equipped with the ability to obtain property-aware molecular
+embedding and model molecular relation graph adaptively. The resultant relation
+graph also facilitates effective label propagation within each task. Extensive
+experiments on benchmark molecular property prediction datasets show that our
+method consistently outperforms state-of-the-art methods and is able to obtain
+property-aware molecular embedding and model molecular relation graph properly.",0.538130167,64.146342,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,4,18935,Learn molecular representations from large-scale unlabeled molecules for drug discovery,"How to produce expressive molecular representations is a fundamental
+challenge in AI-driven drug discovery. Graph neural network (GNN) has emerged
+as a powerful technique for modeling molecular data. However, previous
+supervised approaches usually suffer from the scarcity of labeled data and have
+poor generalization capability. Here, we proposed a novel Molecular
+Pre-training Graph-based deep learning framework, named MPG, that leans
+molecular representations from large-scale unlabeled molecules. In MPG, we
+proposed a powerful MolGNet model and an effective self-supervised strategy for
+pre-training the model at both the node and graph-level. After pre-training on
+11 million unlabeled molecules, we revealed that MolGNet can capture valuable
+chemistry insights to produce interpretable representation. The pre-trained
+MolGNet can be fine-tuned with just one additional output layer to create
+state-of-the-art models for a wide range of drug discovery tasks, including
+molecular properties prediction, drug-drug interaction, and drug-target
+interaction, involving 13 benchmark datasets. Our work demonstrates that MPG is
+promising to become a novel approach in the drug discovery pipeline.",0.504333833,64.146342,0
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,5,18156,Interpretable Drug Synergy Prediction with Graph Neural Networks for Human-AI Collaboration in Healthcare,"We investigate molecular mechanisms of resistant or sensitive response of
+cancer drug combination therapies in an inductive and interpretable manner.
+Though deep learning algorithms are widely used in the drug synergy prediction
+problem, it is still an open problem to formulate the prediction model with
+biological meaning to investigate the mysterious mechanisms of synergy (MoS)
+for the human-AI collaboration in healthcare systems. To address the
+challenges, we propose a deep graph neural network, IDSP (Interpretable Deep
+Signaling Pathways), to incorporate the gene-gene as well as gene-drug
+regulatory relationships in synergic drug combination predictions. IDSP
+automatically learns weights of edges based on the gene and drug node
+relations, i.e., signaling interactions, by a multi-layer perceptron (MLP) and
+aggregates information in an inductive manner. The proposed architecture
+generates interpretable drug synergy prediction by detecting important
+signaling interactions, and can be implemented when the underlying molecular
+mechanism encounters unseen genes or signaling pathways. We test IDWSP on
+signaling networks formulated by genes from 46 core cancer signaling pathways
+and drug combinations from NCI ALMANAC drug combination screening data. The
+experimental results demonstrated that 1) IDSP can learn from the underlying
+molecular mechanism to make prediction without additional drug chemical
+information while achieving highly comparable performance with current
+state-of-art methods; 2) IDSP show superior generality and flexibility to
+implement the synergy prediction task on both transductive tasks and inductive
+tasks. 3) IDSP can generate interpretable results by detecting different
+salient signaling patterns (i.e. MoS) for different cell lines.",0.456389535,64.146342,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,6,19896,MoFlow: An Invertible Flow Model for Generating Molecular Graphs,"Generating molecular graphs with desired chemical properties driven by deep
+graph generative models provides a very promising way to accelerate drug
+discovery process. Such graph generative models usually consist of two steps:
+learning latent representations and generation of molecular graphs. However, to
+generate novel and chemically-valid molecular graphs from latent
+representations is very challenging because of the chemical constraints and
+combinatorial complexity of molecular graphs. In this paper, we propose MoFlow,
+a flow-based graph generative model to learn invertible mappings between
+molecular graphs and their latent representations. To generate molecular
+graphs, our MoFlow first generates bonds (edges) through a Glow based model,
+then generates atoms (nodes) given bonds by a novel graph conditional flow, and
+finally assembles them into a chemically valid molecular graph with a posthoc
+validity correction. Our MoFlow has merits including exact and tractable
+likelihood training, efficient one-pass embedding and generation, chemical
+validity guarantees, 100\% reconstruction of training data, and good
+generalization ability. We validate our model by four tasks: molecular graph
+generation and reconstruction, visualization of the continuous latent space,
+property optimization, and constrained property optimization. Our MoFlow
+achieves state-of-the-art performance, which implies its potential efficiency
+and effectiveness to explore large chemical space for drug discovery.",0.450464885,64.146342,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,7,38936,Learning Graph-Level Representation for Drug Discovery,"Predicating macroscopic influences of drugs on human body, like efficacy and
+toxicity, is a central problem of small-molecule based drug discovery.
+Molecules can be represented as an undirected graph, and we can utilize graph
+convolution networks to predication molecular properties. However, graph
+convolutional networks and other graph neural networks all focus on learning
+node-level representation rather than graph-level representation. Previous
+works simply sum all feature vectors for all nodes in the graph to obtain the
+graph feature vector for drug predication. In this paper, we introduce a dummy
+super node that is connected with all nodes in the graph by a directed edge as
+the representation of the graph and modify the graph operation to help the
+dummy super node learn graph-level feature. Thus, we can handle graph-level
+classification and regression in the same way as node-level classification and
+regression. In addition, we apply focal loss to address class imbalance in drug
+datasets. The experiments on MoleculeNet show that our method can effectively
+improve the performance of molecular properties predication.",0.444357418,64.146342,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,8,10519,Artificial Intelligence in Drug Discovery: Applications and Techniques,"Artificial intelligence (AI) has been transforming the practice of drug
+discovery in the past decade. Various AI techniques have been used in a wide
+range of applications, such as virtual screening and drug design. In this
+survey, we first give an overview on drug discovery and discuss related
+applications, which can be reduced to two major tasks, i.e., molecular property
+prediction and molecule generation. We then discuss common data resources,
+molecule representations and benchmark platforms. Furthermore, to summarize the
+progress of AI in drug discovery, we present the relevant AI techniques
+including model architectures and learning paradigms in the papers surveyed. We
+expect that this survey will serve as a guide for researchers who are
+interested in working at the interface of artificial intelligence and drug
+discovery. We also provide a GitHub repository
+(https://github.com/dengjianyuan/Survey_AI_Drug_Discovery) with the collection
+of papers and codes, if applicable, as a learning resource, which is regularly
+updated.",0.433552418,64.146342,0
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,9,19708,Visualizing Deep Graph Generative Models for Drug Discovery,"Drug discovery aims at designing novel molecules with specific desired
+properties for clinical trials. Over past decades, drug discovery and
+development have been a costly and time consuming process. Driven by big
+chemical data and AI, deep generative models show great potential to accelerate
+the drug discovery process. Existing works investigate different deep
+generative frameworks for molecular generation, however, less attention has
+been paid to the visualization tools to quickly demo and evaluate model's
+results. Here, we propose a visualization framework which provides interactive
+visualization tools to visualize molecules generated during the encoding and
+decoding process of deep graph generative models, and provide real time
+molecular optimization functionalities. Our work tries to empower black box AI
+driven drug discovery models with some visual interpretabilities.",0.422891198,64.146342,1
+0,,,graph neural networks to molecular property prediction for drug discovery.,tfidf_fullscan,10,2215,MolCLR: Molecular Contrastive Learning of Representations via Graph Neural Networks,"Molecular machine learning bears promise for efficient molecule property
+prediction and drug discovery. However, due to the limited labeled data and the
+giant chemical space, machine learning models trained via supervised learning
+perform poorly in generalization. This greatly limits the applications of
+machine learning methods for molecular design and discovery. In this work, we
+present MolCLR: Molecular Contrastive Learning of Representations via Graph
+Neural Networks (GNNs), a self-supervised learning framework for large
+unlabeled molecule datasets. Specifically, we first build a molecular graph,
+where each node represents an atom and each edge represents a chemical bond. A
+GNN is then used to encode the molecule graph. We propose three novel molecule
+graph augmentations: atom masking, bond deletion, and subgraph removal. A
+contrastive estimator is utilized to maximize the agreement of different graph
+augmentations from the same molecule. Experiments show that molecule
+representations learned by MolCLR can be transferred to multiple downstream
+molecular property prediction tasks. Our method thus achieves state-of-the-art
+performance on many challenging datasets. We also prove the efficiency of our
+proposed molecule graph augmentations on supervised molecular classification
+tasks.",0.420552063,64.146342,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,1,36429,Advancements in Image Classification using Convolutional Neural Network,"Convolutional Neural Network (CNN) is the state-of-the-art for image
+classification task. Here we have briefly discussed different components of
+CNN. In this paper, We have explained different CNN architectures for image
+classification. Through this paper, we have shown advancements in CNN from
+LeNet-5 to latest SENet model. We have discussed the model description and
+training details of each model. We have also drawn a comparison among those
+models.",0.6365,207.468036,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,2,33698,"Reproduction Report on ""Learn to Pay Attention""","We have successfully implemented the ""Learn to Pay Attention"" model of
+attention mechanism in convolutional neural networks, and have replicated the
+results of the original paper in the categories of image classification and
+fine-grained recognition.",0.6329,207.468036,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,3,30053,Convolutional Low-Resolution Fine-Grained Classification,"Successful fine-grained image classification methods learn subtle details
+between visually similar (sub-)classes, but the problem becomes significantly
+more challenging if the details are missing due to low resolution. Encouraged
+by the recent success of Convolutional Neural Network (CNN) architectures in
+image classification, we propose a novel resolution-aware deep model which
+combines convolutional image super-resolution and convolutional fine-grained
+classification into a single model in an end-to-end manner. Extensive
+experiments on the Stanford Cars and Caltech-UCSD Birds 200-2011 benchmarks
+demonstrate that the proposed model consistently performs better than
+conventional convolutional net on classifying fine-grained object classes in
+low-resolution images.",0.6136,207.468036,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,4,21179,Color Cerberus,"Simple convolutional neural network was able to win ISISPA color constancy
+competition. Partial reimplementation of (Bianco, 2017) neural architecture
+would have shown even better results in this setup.",0.6133,207.468036,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,5,36221,Best Practices for Convolutional Neural Networks Applied to Object Recognition in Images,"This research project studies the impact of convolutional neural networks
+(CNN) in image classification tasks. We explore different architectures and
+training configurations with the use of ReLUs, Nesterov's accelerated gradient,
+dropout and maxout networks. We work with the CIFAR-10 dataset as part of a
+Kaggle competition to identify objects in images. Initial results show that
+CNNs outperform our baseline by acting as invariant feature detectors.
+Comparisons between different preprocessing procedures show better results for
+global contrast normalization and ZCA whitening. ReLUs are much faster than
+tanh units and outperform sigmoids. We provide extensive details about our
+training hyperparameters, providing intuition for their selection that could
+help enhance learning in similar situations. We design 4 models of
+convolutional neural networks that explore characteristics such as depth,
+number of feature maps, size and overlap of kernels, pooling regions, and
+different subsampling techniques. Results favor models of moderate depth that
+use an extensive number of parameters in both convolutional and dense layers.
+Maxout networks are able to outperform rectifiers on some models but introduce
+too much noise as the complexity of the fully-connected layers increases. The
+final discussion explains our results and provides additional techniques that
+could improve performance.",0.6064,207.468036,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,6,10453,A Comparison of Deep Learning Classification Methods on Small-scale Image Data set: from Convolutional Neural Networks to Visual Transformers,"In recent years, deep learning has made brilliant achievements in image
+classification. However, image classification of small datasets is still not
+obtained good research results. This article first briefly explains the
+application and characteristics of convolutional neural networks and visual
+transformers. Meanwhile, the influence of small data set on classification and
+the solution are introduced. Then a series of experiments are carried out on
+the small datasets by using various models, and the problems of some models in
+the experiments are discussed. Through the comparison of experimental results,
+the recommended deep learning model is given according to the model application
+environment. Finally, we give directions for future work.",0.605,207.468036,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,7,7645,A Non-Technical Survey on Deep Convolutional Neural Network Architectures,"Artificial neural networks have recently shown great results in many
+disciplines and a variety of applications, including natural language
+understanding, speech processing, games and image data generation. One
+particular application in which the strong performance of artificial neural
+networks was demonstrated is the recognition of objects in images, where deep
+convolutional neural networks are commonly applied. In this survey, we give a
+comprehensive introduction to this topic (object recognition with deep
+convolutional neural networks), with a strong focus on the evolution of network
+architectures. Therefore, we aim to compress the most important concepts in
+this field in a simple and non-technical manner to allow for future researchers
+to have a quick general understanding.
+  This work is structured as follows:
+  1. We will explain the basic ideas of (convolutional) neural networks and
+deep learning and examine their usage for three object recognition tasks: image
+classification, object localization and object detection.
+  2. We give a review on the evolution of deep convolutional neural networks by
+providing an extensive overview of the most important network architectures
+presented in chronological order of their appearances.",0.6046,207.468036,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,8,1100,ResFeats: Residual Network Based Features for Image Classification,"Deep residual networks have recently emerged as the state-of-the-art
+architecture in image segmentation and object detection. In this paper, we
+propose new image features (called ResFeats) extracted from the last
+convolutional layer of deep residual networks pre-trained on ImageNet. We
+propose to use ResFeats for diverse image classification tasks namely, object
+classification, scene classification and coral classification and show that
+ResFeats consistently perform better than their CNN counterparts on these
+classification tasks. Since the ResFeats are large feature vectors, we propose
+to use PCA for dimensionality reduction. Experimental results are provided to
+show the effectiveness of ResFeats with state-of-the-art classification
+accuracies on Caltech-101, Caltech-256 and MLC datasets and a significant
+performance improvement on MIT-67 dataset compared to the widely used CNN
+features.",0.6004,207.468036,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,9,7868,Residual Squeeze VGG16,"Deep learning has given way to a new era of machine learning, apart from
+computer vision. Convolutional neural networks have been implemented in image
+classification, segmentation and object detection. Despite recent advancements,
+we are still in the very early stages and have yet to settle on best practices
+for network architecture in terms of deep design, small in size and a short
+training time. In this work, we propose a very deep neural network comprised of
+16 Convolutional layers compressed with the Fire Module adapted from the
+SQUEEZENET model. We also call for the addition of residual connections to help
+suppress degradation. This model can be implemented on almost every neural
+network model with fully incorporated residual learning. This proposed model
+Residual-Squeeze-VGG16 (ResSquVGG16) trained on the large-scale MIT
+Places365-Standard scene dataset. In our tests, the model performed with
+accuracy similar to the pre-trained VGG16 model in Top-1 and Top-5 validation
+accuracy while also enjoying a 23.86% reduction in training time and an 88.4%
+reduction in size. In our tests, this model was trained from scratch.",0.6001,207.468036,1
+1,,,convolutional neural network architecture for image classification,hybrid_clustered_faiss,10,33357,A Baseline for Multi-Label Image Classification Using An Ensemble of Deep Convolutional Neural Networks,"Recent studies on multi-label image classification have focused on designing
+more complex architectures of deep neural networks such as the use of attention
+mechanisms and region proposal networks. Although performance gains have been
+reported, the backbone deep models of the proposed approaches and the
+evaluation metrics employed in different works vary, making it difficult to
+compare each fairly. Moreover, due to the lack of properly investigated
+baselines, the advantage introduced by the proposed techniques are often
+ambiguous. To address these issues, we make a thorough investigation of the
+mainstream deep convolutional neural network architectures for multi-label
+image classification and present a strong baseline. With the use of proper data
+augmentation techniques and model ensembles, the basic deep architectures can
+achieve better performance than many existing more complex ones on three
+benchmark datasets, providing great insight for the future studies on
+multi-label image classification.",0.5997,207.468036,1
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,1,36221,Best Practices for Convolutional Neural Networks Applied to Object Recognition in Images,"This research project studies the impact of convolutional neural networks
+(CNN) in image classification tasks. We explore different architectures and
+training configurations with the use of ReLUs, Nesterov's accelerated gradient,
+dropout and maxout networks. We work with the CIFAR-10 dataset as part of a
+Kaggle competition to identify objects in images. Initial results show that
+CNNs outperform our baseline by acting as invariant feature detectors.
+Comparisons between different preprocessing procedures show better results for
+global contrast normalization and ZCA whitening. ReLUs are much faster than
+tanh units and outperform sigmoids. We provide extensive details about our
+training hyperparameters, providing intuition for their selection that could
+help enhance learning in similar situations. We design 4 models of
+convolutional neural networks that explore characteristics such as depth,
+number of feature maps, size and overlap of kernels, pooling regions, and
+different subsampling techniques. Results favor models of moderate depth that
+use an extensive number of parameters in both convolutional and dense layers.
+Maxout networks are able to outperform rectifiers on some models but introduce
+too much noise as the complexity of the fully-connected layers increases. The
+final discussion explains our results and provides additional techniques that
+could improve performance.",0.793850243,153.705188,1
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,2,32165,Sequential Feature Filtering Classifier,"We propose Sequential Feature Filtering Classifier (FFC), a simple but
+effective classifier for convolutional neural networks (CNNs). With sequential
+LayerNorm and ReLU, FFC zeroes out low-activation units and preserves
+high-activation units. The sequential feature filtering process generates
+multiple features, which are fed into a shared classifier for multiple outputs.
+FFC can be applied to any CNNs with a classifier, and significantly improves
+performances with negligible overhead. We extensively validate the efficacy of
+FFC on various tasks: ImageNet-1K classification, MS COCO detection, Cityscapes
+segmentation, and HMDB51 action recognition. Moreover, we empirically show that
+FFC can further improve performances upon other techniques, including attention
+modules and augmentation techniques. The code and models will be publicly
+available.",0.791857839,153.705188,1
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,3,34793,Recursive Autoconvolution for Unsupervised Learning of Convolutional Neural Networks,"In visual recognition tasks, such as image classification, unsupervised
+learning exploits cheap unlabeled data and can help to solve these tasks more
+efficiently. We show that the recursive autoconvolution operator, adopted from
+physics, boosts existing unsupervised methods by learning more discriminative
+filters. We take well established convolutional neural networks and train their
+filters layer-wise. In addition, based on previous works we design a network
+which extracts more than 600k features per sample, but with the total number of
+trainable parameters greatly reduced by introducing shared filters in higher
+layers. We evaluate our networks on the MNIST, CIFAR-10, CIFAR-100 and STL-10
+image classification benchmarks and report several state of the art results
+among other unsupervised methods.",0.780305386,153.705188,1
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,4,21696,Analysis and Optimization of Convolutional Neural Network Architectures,"Convolutional Neural Networks (CNNs) dominate various computer vision tasks
+since Alex Krizhevsky showed that they can be trained effectively and reduced
+the top-5 error from 26.2 % to 15.3 % on the ImageNet large scale visual
+recognition challenge. Many aspects of CNNs are examined in various
+publications, but literature about the analysis and construction of neural
+network architectures is rare. This work is one step to close this gap. A
+comprehensive overview over existing techniques for CNN analysis and topology
+construction is provided. A novel way to visualize classification errors with
+confusion matrices was developed. Based on this method, hierarchical
+classifiers are described and evaluated. Additionally, some results are
+confirmed and quantified for CIFAR-100. For example, the positive impact of
+smaller batch sizes, averaging ensembles, data augmentation and test-time
+transformations on the accuracy. Other results, such as the positive impact of
+learned color transformation on the test accuracy could not be confirmed. A
+model which has only one million learned parameters for an input size of
+32x32x3 and 100 classes and which beats the state of the art on the benchmark
+dataset Asirra, GTSRB, HASYv2 and STL-10 was developed.",0.780297637,153.705188,1
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,5,21980,On Binary Classification with Single-Layer Convolutional Neural Networks,"Convolutional neural networks are becoming standard tools for solving object
+recognition and visual tasks. However, most of the design and implementation of
+these complex models are based on trail-and-error. In this report, the main
+focus is to consider some of the important factors in designing convolutional
+networks to perform better. Specifically, classification with wide single-layer
+networks with large kernels as a general framework is considered. Particularly,
+we will show that pre-training using unsupervised schemes is vital, reasonable
+regularization is beneficial and applying of strong regularizers like dropout
+could be devastating. Pool size is also could be as important as learning
+procedure itself. In addition, it has been presented that using such a simple
+and relatively fast model for classifying cats and dogs, performance is close
+to state-of-the-art achievable by a combination of SVM models on color and
+texture features.",0.779846489,153.705188,1
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,6,6635,Fast Efficient Object Detection Using Selective Attention,Retraction due to significant oversight,0.779233456,153.705188,1
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,7,9208,Transfer Learning using CNN for Handwritten Devanagari Character Recognition,"This paper presents an analysis of pre-trained models to recognize
+handwritten Devanagari alphabets using transfer learning for Deep Convolution
+Neural Network (DCNN). This research implements AlexNet, DenseNet, Vgg, and
+Inception ConvNet as a fixed feature extractor. We implemented 15 epochs for
+each of AlexNet, DenseNet 121, DenseNet 201, Vgg 11, Vgg 16, Vgg 19, and
+Inception V3. Results show that Inception V3 performs better in terms of
+accuracy achieving 99% accuracy with average epoch time 16.3 minutes while
+AlexNet performs fastest with 2.2 minutes per epoch and achieving 98\%
+accuracy.",0.778533459,153.705188,1
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,8,36429,Advancements in Image Classification using Convolutional Neural Network,"Convolutional Neural Network (CNN) is the state-of-the-art for image
+classification task. Here we have briefly discussed different components of
+CNN. In this paper, We have explained different CNN architectures for image
+classification. Through this paper, we have shown advancements in CNN from
+LeNet-5 to latest SENet model. We have discussed the model description and
+training details of each model. We have also drawn a comparison among those
+models.",0.777788639,153.705188,1
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,9,33698,"Reproduction Report on ""Learn to Pay Attention""","We have successfully implemented the ""Learn to Pay Attention"" model of
+attention mechanism in convolutional neural networks, and have replicated the
+results of the original paper in the categories of image classification and
+fine-grained recognition.",0.777095318,153.705188,0
+1,,,convolutional neural network architecture for image classification,semantic_fullscan,10,13026,Applications of the Streaming Networks,"Most recently Streaming Networks (STnets) have been introduced as a mechanism
+of robust noise-corrupted images classification. STnets is a family of
+convolutional neural networks, which consists of multiple neural networks
+(streams), which have different inputs and their outputs are concatenated and
+fed into a single joint classifier. The original paper has illustrated how
+STnets can successfully classify images from Cifar10, EuroSat and UCmerced
+datasets, when images were corrupted with various levels of random zero noise.
+In this paper, we demonstrate that STnets are capable of high accuracy
+classification of images corrupted with Gaussian noise, fog, snow, etc.
+(Cifar10 corrupted dataset) and low light images (subset of Carvana dataset).
+We also introduce a new type of STnets called Hybrid STnets. Thus, we
+illustrate that STnets is a universal tool of image classification when
+original training dataset is corrupted with noise or other transformations,
+which lead to information loss from original images.",0.775566101,153.705188,1
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,1,22097,Color and Shape Content Based Image Classification using RBF Network and PSO Technique: A Survey,"The improvement of the accuracy of image query retrieval used image
+classification technique. Image classification is well known technique of
+supervised learning. The improved method of image classification increases the
+working efficiency of image query retrieval. For the improvements of
+classification technique we used RBF neural network function for better
+prediction of feature used in image retrieval.Colour content is represented by
+pixel values in image classification using radial base function(RBF) technique.
+This approach provides better result compare to SVM technique in image
+representation.Image is represented by matrix though RBF using pixel values of
+colour intensity of image. Firstly we using RGB colour model. In this colour
+model we use red, green and blue colour intensity values in matrix.SVM with
+partical swarm optimization for image classification is implemented in content
+of images which provide better Results based on the proposed approach are found
+encouraging in terms of color image classification accuracy.",0.382785472,108.404803,1
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,2,18019,Mesh-based graph convolutional neural network models of processes with complex initial states,"Predicting the evolution of a representative sample of a material with
+microstructure is a fundamental problem in homogenization. In this work we
+propose a graph convolutional neural network that utilizes the discretized
+representation of the initial microstructure directly, without segmentation or
+clustering. Compared to feature-based and pixel-based convolutional neural
+network models, the proposed method has a number of advantages: (a) it is deep
+in that it does not require featurization but can benefit from it, (b) it has a
+simple implementation with standard convolutional filters and layers, (c) it
+works natively on unstructured and structured grid data without interpolation
+(unlike pixel-based convolutional neural networks), and (d) it preserves
+rotational invariance like other graph-based convolutional neural networks. We
+demonstrate the performance of the proposed network and compare it to
+traditional pixel-based convolution neural network models and feature-based
+graph convolutional neural networks on three large datasets.",0.356114259,108.404803,1
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,3,15769,Image Classification with CondenseNeXt for ARM-Based Computing Platforms,"In this paper, we demonstrate the implementation of our ultra-efficient deep
+convolutional neural network architecture: CondenseNeXt on NXP BlueBox, an
+autonomous driving development platform developed for self-driving vehicles. We
+show that CondenseNeXt is remarkably efficient in terms of FLOPs, designed for
+ARM-based embedded computing platforms with limited computational resources and
+can perform image classification without the need of a CUDA enabled GPU.
+CondenseNeXt utilizes the state-of-the-art depthwise separable convolution and
+model compression techniques to achieve a remarkable computational efficiency.
+Extensive analyses are conducted on CIFAR-10, CIFAR-100 and ImageNet datasets
+to verify the performance of CondenseNeXt Convolutional Neural Network (CNN)
+architecture. It achieves state-of-the-art image classification performance on
+three benchmark datasets including CIFAR-10 (4.79% top-1 error), CIFAR-100
+(21.98% top-1 error) and ImageNet (7.91% single model, single crop top-5
+error). CondenseNeXt achieves final trained model size improvement of 2.9+ MB
+and up to 59.98% reduction in forward FLOPs compared to CondenseNet and can
+perform image classification on ARM-Based computing platforms without needing a
+CUDA enabled GPU support, with outstanding efficiency.",0.355662047,108.404803,1
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,4,9943,Quantum-Classical Hybrid Machine Learning for Image Classification (ICCAD Special Session Paper),"Image classification is a major application domain for conventional deep
+learning (DL). Quantum machine learning (QML) has the potential to
+revolutionize image classification. In any typical DL-based image
+classification, we use convolutional neural network (CNN) to extract features
+from the image and multi-layer perceptron network (MLP) to create the actual
+decision boundaries. On one hand, QML models can be useful in both of these
+tasks. Convolution with parameterized quantum circuits (Quanvolution) can
+extract rich features from the images. On the other hand, quantum neural
+network (QNN) models can create complex decision boundaries. Therefore,
+Quanvolution and QNN can be used to create an end-to-end QML model for image
+classification. Alternatively, we can extract image features separately using
+classical dimension reduction techniques such as, Principal Components Analysis
+(PCA) or Convolutional Autoencoder (CAE) and use the extracted features to
+train a QNN. We review two proposals on quantum-classical hybrid ML models for
+image classification namely, Quanvolutional Neural Network and dimension
+reduction using a classical algorithm followed by QNN. Particularly, we make a
+case for trainable filters in Quanvolution and CAE-based feature extraction for
+image datasets (instead of dimension reduction using linear transformations
+such as, PCA). We discuss various design choices, potential opportunities, and
+drawbacks of these models. We also release a Python-based framework to create
+and explore these hybrid models with a variety of design choices.",0.349182361,108.404803,1
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,5,38280,Autoregressive Convolutional Neural Networks for Asynchronous Time Series,"We propose Significance-Offset Convolutional Neural Network, a deep
+convolutional network architecture for regression of multivariate asynchronous
+time series. The model is inspired by standard autoregressive (AR) models and
+gating mechanisms used in recurrent neural networks. It involves an AR-like
+weighting system, where the final predictor is obtained as a weighted sum of
+adjusted regressors, while the weights are datadependent functions learnt
+through a convolutional network. The architecture was designed for applications
+on asynchronous time series and is evaluated on such datasets: a hedge fund
+proprietary dataset of over 2 million quotes for a credit derivative index, an
+artificially generated noisy autoregressive series and UCI household
+electricity consumption dataset. The proposed architecture achieves promising
+results as compared to convolutional and recurrent neural networks.",0.340877272,108.404803,0
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,6,19406,Visual Steering for One-Shot Deep Neural Network Synthesis,"Recent advancements in the area of deep learning have shown the effectiveness
+of very large neural networks in several applications. However, as these deep
+neural networks continue to grow in size, it becomes more and more difficult to
+configure their many parameters to obtain good results. Presently, analysts
+must experiment with many different configurations and parameter settings,
+which is labor-intensive and time-consuming. On the other hand, the capacity of
+fully automated techniques for neural network architecture search is limited
+without the domain knowledge of human experts. To deal with the problem, we
+formulate the task of neural network architecture optimization as a graph space
+exploration, based on the one-shot architecture search technique. In this
+approach, a super-graph of all candidate architectures is trained in one-shot
+and the optimal neural network is identified as a sub-graph. In this paper, we
+present a framework that allows analysts to effectively build the solution
+sub-graph space and guide the network search by injecting their domain
+knowledge. Starting with the network architecture space composed of basic
+neural network components, analysts are empowered to effectively select the
+most promising components via our one-shot search scheme. Applying this
+technique in an iterative manner allows analysts to converge to the best
+performing neural network architecture for a given application. During the
+exploration, analysts can use their domain knowledge aided by cues provided
+from a scatterplot visualization of the search space to edit different
+components and guide the search for faster convergence. We designed our
+interface in collaboration with several deep learning researchers and its final
+effectiveness is evaluated with a user study and two case studies.",0.330068419,108.404803,0
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,7,9159,Inspect Transfer Learning Architecture with Dilated Convolution,"There are many award-winning pre-trained Convolutional Neural Network (CNN),
+which have a common phenomenon of increasing depth in convolutional layers.
+However, I inspect on VGG network, which is one of the famous model submitted
+to ILSVRC-2014, to show that slight modification in the basic architecture can
+enhance the accuracy result of the image classification task. In this paper, We
+present two improve architectures of pre-trained VGG-16 and VGG-19 networks
+that apply transfer learning when trained on a different dataset. I report a
+series of experimental result on various modification of the primary VGG
+networks and achieved significant out-performance on image classification task
+by: (1) freezing the first two blocks of the convolutional layers to prevent
+over-fitting and (2) applying different combination of dilation rate in the
+last three blocks of convolutional layer to reduce image resolution for feature
+extraction. Both the proposed architecture achieves a competitive result on
+CIFAR-10 and CIFAR-100 dataset.",0.323266248,108.404803,1
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,8,30053,Convolutional Low-Resolution Fine-Grained Classification,"Successful fine-grained image classification methods learn subtle details
+between visually similar (sub-)classes, but the problem becomes significantly
+more challenging if the details are missing due to low resolution. Encouraged
+by the recent success of Convolutional Neural Network (CNN) architectures in
+image classification, we propose a novel resolution-aware deep model which
+combines convolutional image super-resolution and convolutional fine-grained
+classification into a single model in an end-to-end manner. Extensive
+experiments on the Stanford Cars and Caltech-UCSD Birds 200-2011 benchmarks
+demonstrate that the proposed model consistently performs better than
+conventional convolutional net on classifying fine-grained object classes in
+low-resolution images.",0.322122635,108.404803,1
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,9,20280,Rep the Set: Neural Networks for Learning Set Representations,"In several domains, data objects can be decomposed into sets of simpler
+objects. It is then natural to represent each object as the set of its
+components or parts. Many conventional machine learning algorithms are unable
+to process this kind of representations, since sets may vary in cardinality and
+elements lack a meaningful ordering. In this paper, we present a new neural
+network architecture, called RepSet, that can handle examples that are
+represented as sets of vectors. The proposed model computes the correspondences
+between an input set and some hidden sets by solving a series of network flow
+problems. This representation is then fed to a standard neural network
+architecture to produce the output. The architecture allows end-to-end
+gradient-based learning. We demonstrate RepSet on classification tasks,
+including text categorization, and graph classification, and we show that the
+proposed neural network achieves performance better or comparable to
+state-of-the-art algorithms.",0.3191308,108.404803,0
+1,,,convolutional neural network architecture for image classification,tfidf_fullscan,10,29376,Recurrent Models of Visual Attention,"Applying convolutional neural networks to large images is computationally
+expensive because the amount of computation scales linearly with the number of
+image pixels. We present a novel recurrent neural network model that is capable
+of extracting information from an image or video by adaptively selecting a
+sequence of regions or locations and only processing the selected regions at
+high resolution. Like convolutional neural networks, the proposed model has a
+degree of translation invariance built-in, but the amount of computation it
+performs can be controlled independently of the input image size. While the
+model is non-differentiable, it can be trained using reinforcement learning
+methods to learn task-specific policies. We evaluate our model on several image
+classification tasks, where it significantly outperforms a convolutional neural
+network baseline on cluttered images, and on a dynamic visual control problem,
+where it learns to track a simple object without an explicit training signal
+for doing so.",0.318749314,108.404803,0
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,1,16269,Structured Neural Summarization,"Summarization of long sequences into a concise statement is a core problem in
+natural language processing, requiring non-trivial understanding of the input.
+Based on the promising results of graph neural networks on highly structured
+data, we develop a framework to extend existing sequence encoders with a graph
+component that can reason about long-distance relationships in weakly
+structured data such as text. In an extensive evaluation, we show that the
+resulting hybrid sequence-graph models outperform both pure sequence models as
+well as pure graph models on a range of summarization tasks.",0.6114,306.12017,1
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,2,30535,DeepTitle -- Leveraging BERT to generate Search Engine Optimized Headlines,"Automated headline generation for online news articles is not a trivial task
+- machine generated titles need to be grammatically correct, informative,
+capture attention and generate search traffic without being ""click baits"" or
+""fake news"". In this paper we showcase how a pre-trained language model can be
+leveraged to create an abstractive news headline generator for German language.
+We incorporate state of the art fine-tuning techniques for abstractive text
+summarization, i.e. we use different optimizers for the encoder and decoder
+where the former is pre-trained and the latter is trained from scratch. We
+modify the headline generation to incorporate frequently sought keywords
+relevant for search engine optimization. We conduct experiments on a German
+news data set and achieve a ROUGE-L-gram F-score of 40.02. Furthermore, we
+address the limitations of ROUGE for measuring the quality of text
+summarization by introducing a sentence similarity metric and human evaluation.",0.6019,306.12017,1
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,3,27690,"Read, Highlight and Summarize: A Hierarchical Neural Semantic Encoder-based Approach","Traditional sequence-to-sequence (seq2seq) models and other variations of the
+attention-mechanism such as hierarchical attention have been applied to the
+text summarization problem. Though there is a hierarchy in the way humans use
+language by forming paragraphs from sentences and sentences from words,
+hierarchical models have usually not worked that much better than their
+traditional seq2seq counterparts. This effect is mainly because either the
+hierarchical attention mechanisms are too sparse using hard attention or noisy
+using soft attention. In this paper, we propose a method based on extracting
+the highlights of a document; a key concept that is conveyed in a few
+sentences. In a typical text summarization dataset consisting of documents that
+are 800 tokens in length (average), capturing long-term dependencies is very
+important, e.g., the last sentence can be grouped with the first sentence of a
+document to form a summary. LSTMs (Long Short-Term Memory) proved useful for
+machine translation. However, they often fail to capture long-term dependencies
+while modeling long sequences. To address these issues, we have adapted Neural
+Semantic Encoders (NSE) to text summarization, a class of memory-augmented
+neural networks by improving its functionalities and proposed a novel
+hierarchical NSE that outperforms similar previous models significantly. The
+quality of summarization was improved by augmenting linguistic factors, namely
+lemma, and Part-of-Speech (PoS) tags, to each word in the dataset for improved
+vocabulary coverage and generalization. The hierarchical NSE model on factored
+dataset outperformed the state-of-the-art by nearly 4 ROUGE points. We further
+designed and used the first GPU-based self-critical Reinforcement Learning
+model.",0.5997,306.12017,1
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,4,16864,Attention-based Neural Text Segmentation,"Text segmentation plays an important role in various Natural Language
+Processing (NLP) tasks like summarization, context understanding, document
+indexing and document noise removal. Previous methods for this task require
+manual feature engineering, huge memory requirements and large execution times.
+To the best of our knowledge, this paper is the first one to present a novel
+supervised neural approach for text segmentation. Specifically, we propose an
+attention-based bidirectional LSTM model where sentence embeddings are learned
+using CNNs and the segments are predicted based on contextual information. This
+model can automatically handle variable sized context information. Compared to
+the existing competitive baselines, the proposed model shows a performance
+improvement of ~7% in WinDiff score on three benchmark datasets.",0.5776,306.12017,0
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,5,12275,Few-Shot Learning for Opinion Summarization,"Opinion summarization is the automatic creation of text reflecting subjective
+information expressed in multiple documents, such as user reviews of a product.
+The task is practically important and has attracted a lot of attention.
+However, due to the high cost of summary production, datasets large enough for
+training supervised models are lacking. Instead, the task has been
+traditionally approached with extractive methods that learn to select text
+fragments in an unsupervised or weakly-supervised way. Recently, it has been
+shown that abstractive summaries, potentially more fluent and better at
+reflecting conflicting information, can also be produced in an unsupervised
+fashion. However, these models, not being exposed to actual summaries, fail to
+capture their essential properties. In this work, we show that even a handful
+of summaries is sufficient to bootstrap generation of the summary text with all
+expected properties, such as writing style, informativeness, fluency, and
+sentiment preservation. We start by training a conditional Transformer language
+model to generate a new product review given other available reviews of the
+product. The model is also conditioned on review properties that are directly
+related to summaries; the properties are derived from reviews with no manual
+effort. In the second stage, we fine-tune a plug-in module that learns to
+predict property values on a handful of summaries. This lets us switch the
+generator to the summarization mode. We show on Amazon and Yelp datasets that
+our approach substantially outperforms previous extractive and abstractive
+methods in automatic and human evaluation.",0.564,306.12017,1
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,6,2282,Attentive Representation Learning with Adversarial Training for Short Text Clustering,"Short text clustering has far-reaching effects on semantic analysis, showing
+its importance for multiple applications such as corpus summarization and
+information retrieval. However, it inevitably encounters the severe sparsity of
+short text representations, making the previous clustering approaches still far
+from satisfactory. In this paper, we present a novel attentive representation
+learning model for shot text clustering, wherein cluster-level attention is
+proposed to capture the correlations between text representations and cluster
+representations. Relying on this, the representation learning and clustering
+for short texts are seamlessly integrated into a unified model. To further
+ensure robust model training for short texts, we apply adversarial training to
+the unsupervised clustering setting, by injecting perturbations into the
+cluster representations. The model parameters and perturbations are optimized
+alternately through a minimax game. Extensive experiments on four real-world
+short text datasets demonstrate the superiority of the proposed model over
+several strong competitors, verifying that robust adversarial training yields
+substantial performance gains.",0.5533,306.12017,1
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,7,33071,Topic Augmented Generator for Abstractive Summarization,"Steady progress has been made in abstractive summarization with
+attention-based sequence-to-sequence learning models. In this paper, we propose
+a new decoder where the output summary is generated by conditioning on both the
+input text and the latent topics of the document. The latent topics, identified
+by a topic model such as LDA, reveals more global semantic information that can
+be used to bias the decoder to generate words. In particular, they enable the
+decoder to have access to additional word co-occurrence statistics captured at
+document corpus level. We empirically validate the advantage of the proposed
+approach on both the CNN/Daily Mail and the WikiHow datasets. Concretely, we
+attain strongly improved ROUGE scores when compared to state-of-the-art models.",0.5483,306.12017,1
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,8,17095,Syntactically Informed Text Compression with Recurrent Neural Networks,"We present a self-contained system for constructing natural language models
+for use in text compression. Our system improves upon previous neural network
+based models by utilizing recent advances in syntactic parsing -- Google's
+SyntaxNet -- to augment character-level recurrent neural networks. RNNs have
+proven exceptional in modeling sequence data such as text, as their
+architecture allows for modeling of long-term contextual information.",0.5447,306.12017,0
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,9,4638,MaskGAN: Better Text Generation via Filling in the______,"Neural text generation models are often autoregressive language models or
+seq2seq models. These models generate text by sampling words sequentially, with
+each word conditioned on the previous word, and are state-of-the-art for
+several machine translation and summarization benchmarks. These benchmarks are
+often defined by validation perplexity even though this is not a direct measure
+of the quality of the generated text. Additionally, these models are typically
+trained via maxi- mum likelihood and teacher forcing. These methods are
+well-suited to optimizing perplexity but can result in poor sample quality
+since generating text requires conditioning on sequences of words that may have
+never been observed at training time. We propose to improve sample quality
+using Generative Adversarial Networks (GANs), which explicitly train the
+generator to produce high quality samples and have shown a lot of success in
+image generation. GANs were originally designed to output differentiable
+values, so discrete language generation is challenging for them. We claim that
+validation perplexity alone is not indicative of the quality of text generated
+by a model. We introduce an actor-critic conditional GAN that fills in missing
+text conditioned on the surrounding context. We show qualitatively and
+quantitatively, evidence that this produces more realistic conditional and
+unconditional text samples compared to a maximum likelihood trained model.",0.543,306.12017,1
+2,,,transformer-based model for text summarization.,hybrid_clustered_faiss,10,33634,Improving generation quality of pointer networks via guided attention,"Pointer generator networks have been used successfully for abstractive
+summarization. Along with the capability to generate novel words, it also
+allows the model to copy from the input text to handle out-of-vocabulary words.
+In this paper, we point out two key shortcomings of the summaries generated
+with this framework via manual inspection, statistical analysis and human
+evaluation. The first shortcoming is the extractive nature of the generated
+summaries, since the network eventually learns to copy from the input article
+most of the times, affecting the abstractive nature of the generated summaries.
+The second shortcoming is the factual inaccuracies in the generated text
+despite grammatical correctness. Our analysis indicates that this arises due to
+incorrect attention transition between different parts of the article. We
+propose an initial attempt towards addressing both these shortcomings by
+externally appending traditional linguistic information parsed from the input
+text, thereby teaching networks on the structure of the underlying text.
+Results indicate feasibility and potential of such additional cues for improved
+generation.",0.5425,306.12017,1
+2,,,transformer-based model for text summarization.,semantic_fullscan,1,16269,Structured Neural Summarization,"Summarization of long sequences into a concise statement is a core problem in
+natural language processing, requiring non-trivial understanding of the input.
+Based on the promising results of graph neural networks on highly structured
+data, we develop a framework to extend existing sequence encoders with a graph
+component that can reason about long-distance relationships in weakly
+structured data such as text. In an extensive evaluation, we show that the
+resulting hybrid sequence-graph models outperform both pure sequence models as
+well as pure graph models on a range of summarization tasks.",0.752389669,225.852699,1
+2,,,transformer-based model for text summarization.,semantic_fullscan,2,16511,Human-like Time Series Summaries via Trend Utility Estimation,"In many scenarios, humans prefer a text-based representation of quantitative
+data over numerical, tabular, or graphical representations. The attractiveness
+of textual summaries for complex data has inspired research on data-to-text
+systems. While there are several data-to-text tools for time series, few of
+them try to mimic how humans summarize for time series. In this paper, we
+propose a model to create human-like text descriptions for time series. Our
+system finds patterns in time series data and ranks these patterns based on
+empirical observations of human behavior using utility estimation. Our proposed
+utility estimation model is a Bayesian network capturing interdependencies
+between different patterns. We describe the learning steps for this network and
+introduce baselines along with their performance for each step. The output of
+our system is a natural language description of time series that attempts to
+match a human's summary of the same data.",0.737291336,225.852699,0
+2,,,transformer-based model for text summarization.,semantic_fullscan,3,36520,"Demystifying Multi-Faceted Video Summarization: Tradeoff Between Diversity,Representation, Coverage and Importance","This paper addresses automatic summarization of videos in a unified manner.
+In particular, we propose a framework for multi-faceted summarization for
+extractive, query base and entity summarization (summarization at the level of
+entities like objects, scenes, humans and faces in the video). We investigate
+several summarization models which capture notions of diversity, coverage,
+representation and importance, and argue the utility of these different models
+depending on the application. While most of the prior work on submodular
+summarization approaches has focused oncombining several models and learning
+weighted mixtures, we focus on the explainability of different models and
+featurizations, and how they apply to different domains. We also provide
+implementation details on summarization systems and the different modalities
+involved. We hope that the study from this paper will give insights into
+practitioners to appropriately choose the right summarization models for the
+problems at hand.",0.734358132,225.852699,0
+2,,,transformer-based model for text summarization.,semantic_fullscan,4,16864,Attention-based Neural Text Segmentation,"Text segmentation plays an important role in various Natural Language
+Processing (NLP) tasks like summarization, context understanding, document
+indexing and document noise removal. Previous methods for this task require
+manual feature engineering, huge memory requirements and large execution times.
+To the best of our knowledge, this paper is the first one to present a novel
+supervised neural approach for text segmentation. Specifically, we propose an
+attention-based bidirectional LSTM model where sentence embeddings are learned
+using CNNs and the segments are predicted based on contextual information. This
+model can automatically handle variable sized context information. Compared to
+the existing competitive baselines, the proposed model shows a performance
+improvement of ~7% in WinDiff score on three benchmark datasets.",0.734178483,225.852699,0
+2,,,transformer-based model for text summarization.,semantic_fullscan,5,30535,DeepTitle -- Leveraging BERT to generate Search Engine Optimized Headlines,"Automated headline generation for online news articles is not a trivial task
+- machine generated titles need to be grammatically correct, informative,
+capture attention and generate search traffic without being ""click baits"" or
+""fake news"". In this paper we showcase how a pre-trained language model can be
+leveraged to create an abstractive news headline generator for German language.
+We incorporate state of the art fine-tuning techniques for abstractive text
+summarization, i.e. we use different optimizers for the encoder and decoder
+where the former is pre-trained and the latter is trained from scratch. We
+modify the headline generation to incorporate frequently sought keywords
+relevant for search engine optimization. We conduct experiments on a German
+news data set and achieve a ROUGE-L-gram F-score of 40.02. Furthermore, we
+address the limitations of ROUGE for measuring the quality of text
+summarization by introducing a sentence similarity metric and human evaluation.",0.725838661,225.852699,1
+2,,,transformer-based model for text summarization.,semantic_fullscan,6,33576,Summarizing Videos with Attention,"In this work we propose a novel method for supervised, keyshots based video
+summarization by applying a conceptually simple and computationally efficient
+soft, self-attention mechanism. Current state of the art methods leverage
+bi-directional recurrent networks such as BiLSTM combined with attention. These
+networks are complex to implement and computationally demanding compared to
+fully connected networks. To that end we propose a simple, self-attention based
+network for video summarization which performs the entire sequence to sequence
+transformation in a single feed forward pass and single backward pass during
+training. Our method sets a new state of the art results on two benchmarks
+TvSum and SumMe, commonly used in this domain.",0.725319147,225.852699,0
+2,,,transformer-based model for text summarization.,semantic_fullscan,7,17095,Syntactically Informed Text Compression with Recurrent Neural Networks,"We present a self-contained system for constructing natural language models
+for use in text compression. Our system improves upon previous neural network
+based models by utilizing recent advances in syntactic parsing -- Google's
+SyntaxNet -- to augment character-level recurrent neural networks. RNNs have
+proven exceptional in modeling sequence data such as text, as their
+architecture allows for modeling of long-term contextual information.",0.722897172,225.852699,0
+2,,,transformer-based model for text summarization.,semantic_fullscan,8,26211,NetReAct: Interactive Learning for Network Summarization,"Generating useful network summaries is a challenging and important problem
+with several applications like sensemaking, visualization, and compression.
+However, most of the current work in this space do not take human feedback into
+account while generating summaries. Consider an intelligence analysis scenario,
+where the analyst is exploring a similarity network between documents. The
+analyst can express her agreement/disagreement with the visualization of the
+network summary via iterative feedback, e.g. closing or moving documents
+(""nodes"") together. How can we use this feedback to improve the network summary
+quality? In this paper, we present NetReAct, a novel interactive network
+summarization algorithm which supports the visualization of networks induced by
+text corpora to perform sensemaking. NetReAct incorporates human feedback with
+reinforcement learning to summarize and visualize document networks. Using
+scenarios from two datasets, we show how NetReAct is successful in generating
+high-quality summaries and visualizations that reveal hidden patterns better
+than other non-trivial baselines.",0.721173048,225.852699,1
+2,,,transformer-based model for text summarization.,semantic_fullscan,9,11099,Pay Attention when Required,"Transformer-based models consist of interleaved feed-forward blocks - that
+capture content meaning, and relatively more expensive self-attention blocks -
+that capture context meaning. In this paper, we explored trade-offs and
+ordering of the blocks to improve upon the current Transformer architecture and
+proposed PAR Transformer. It needs 35% lower compute time than Transformer-XL
+achieved by replacing ~63% of the self-attention blocks with feed-forward
+blocks, and retains the perplexity on WikiText-103 language modelling
+benchmark. We further validated our results on text8 and enwiki8 datasets, as
+well as on the BERT model.",0.718692601,225.852699,1
+2,,,transformer-based model for text summarization.,semantic_fullscan,10,32058,PySS3: A Python package implementing a novel text classifier with visualization tools for Explainable AI,"A recently introduced text classifier, called SS3, has obtained
+state-of-the-art performance on the CLEF's eRisk tasks. SS3 was created to deal
+with risk detection over text streams and, therefore, not only supports
+incremental training and classification but also can visually explain its
+rationale. However, little attention has been paid to the potential use of SS3
+as a general classifier. We believe this could be due to the unavailability of
+an open-source implementation of SS3. In this work, we introduce PySS3, a
+package that implements SS3 and also comes with visualization tools that allow
+researchers to deploy robust, explainable, and trusty machine learning models
+for text classification.",0.71764034,225.852699,0
+2,,,transformer-based model for text summarization.,tfidf_fullscan,1,36520,"Demystifying Multi-Faceted Video Summarization: Tradeoff Between Diversity,Representation, Coverage and Importance","This paper addresses automatic summarization of videos in a unified manner.
+In particular, we propose a framework for multi-faceted summarization for
+extractive, query base and entity summarization (summarization at the level of
+entities like objects, scenes, humans and faces in the video). We investigate
+several summarization models which capture notions of diversity, coverage,
+representation and importance, and argue the utility of these different models
+depending on the application. While most of the prior work on submodular
+summarization approaches has focused oncombining several models and learning
+weighted mixtures, we focus on the explainability of different models and
+featurizations, and how they apply to different domains. We also provide
+implementation details on summarization systems and the different modalities
+involved. We hope that the study from this paper will give insights into
+practitioners to appropriately choose the right summarization models for the
+problems at hand.",0.52620089,107.581488,0
+2,,,transformer-based model for text summarization.,tfidf_fullscan,2,9420,Deep Transfer Reinforcement Learning for Text Summarization,"Deep neural networks are data hungry models and thus face difficulties when
+attempting to train on small text datasets. Transfer learning is a potential
+solution but their effectiveness in the text domain is not as explored as in
+areas such as image analysis. In this paper, we study the problem of transfer
+learning for text summarization and discuss why existing state-of-the-art
+models fail to generalize well on other (unseen) datasets. We propose a
+reinforcement learning framework based on a self-critic policy gradient
+approach which achieves good generalization and state-of-the-art results on a
+variety of datasets. Through an extensive set of experiments, we also show the
+ability of our proposed framework to fine-tune the text summarization model
+using only a few training samples. To the best of our knowledge, this is the
+first work that studies transfer learning in text summarization and provides a
+generic solution that works well on unseen data.",0.447011925,107.581488,0
+2,,,transformer-based model for text summarization.,tfidf_fullscan,3,30616,Use of Affective Visual Information for Summarization of Human-Centric Videos,"Increasing volume of user-generated human-centric video content and their
+applications, such as video retrieval and browsing, require compact
+representations that are addressed by the video summarization literature.
+Current supervised studies formulate video summarization as a
+sequence-to-sequence learning problem and the existing solutions often neglect
+the surge of human-centric view, which inherently contains affective content.
+In this study, we investigate the affective-information enriched supervised
+video summarization task for human-centric videos. First, we train a visual
+input-driven state-of-the-art continuous emotion recognition model (CER-NET) on
+the RECOLA dataset to estimate emotional attributes. Then, we integrate the
+estimated emotional attributes and the high-level representations from the
+CER-NET with the visual information to define the proposed affective video
+summarization architectures (AVSUM). In addition, we investigate the use of
+attention to improve the AVSUM architectures and propose two new architectures
+based on temporal attention (TA-AVSUM) and spatial attention (SA-AVSUM). We
+conduct video summarization experiments on the TvSum database. The proposed
+AVSUM-GRU architecture with an early fusion of high level GRU embeddings and
+the temporal attention based TA-AVSUM architecture attain competitive video
+summarization performances by bringing strong performance improvements for the
+human-centric videos compared to the state-of-the-art in terms of F-score and
+self-defined face recall metrics.",0.393121534,107.581488,0
+2,,,transformer-based model for text summarization.,tfidf_fullscan,4,10624,CLIP-It! Language-Guided Video Summarization,"A generic video summary is an abridged version of a video that conveys the
+whole story and features the most important scenes. Yet the importance of
+scenes in a video is often subjective, and users should have the option of
+customizing the summary by using natural language to specify what is important
+to them. Further, existing models for fully automatic generic summarization
+have not exploited available language models, which can serve as an effective
+prior for saliency. This work introduces CLIP-It, a single framework for
+addressing both generic and query-focused video summarization, typically
+approached separately in the literature. We propose a language-guided
+multimodal transformer that learns to score frames in a video based on their
+importance relative to one another and their correlation with a user-defined
+query (for query-focused summarization) or an automatically generated dense
+video caption (for generic video summarization). Our model can be extended to
+the unsupervised setting by training without ground-truth supervision. We
+outperform baselines and prior work by a significant margin on both standard
+video summarization datasets (TVSum and SumMe) and a query-focused video
+summarization dataset (QFVS). Particularly, we achieve large improvements in
+the transfer setting, attesting to our method's strong generalization
+capabilities.",0.381403813,107.581488,0
+2,,,transformer-based model for text summarization.,tfidf_fullscan,5,5420,RayNet: Real-time Scene Arbitrary-shape Text Detection with Multiple Rays,"Existing object detection-based text detectors mainly concentrate on
+detecting horizontal and multioriented text. However, they do not pay enough
+attention to complex-shape text (curved or other irregularly shaped text).
+Recently, segmentation-based text detection methods have been introduced to
+deal with the complex-shape text; however, the pixel level processing increases
+the computational cost significantly. To further improve the accuracy and
+efficiency, we propose a novel detection framework for arbitrary-shape text
+detection, termed as RayNet. RayNet uses Center Point Set (CPS) and Ray
+Distance (RD) to fit text, where CPS is used to determine the text general
+position and the RD is combined with CPS to compute Ray Points (RP) to localize
+the text accurate shape. Since RP are disordered, we develop the Ray Points
+Connection (RPC) algorithm to reorder RP, which significantly improves the
+detection performance of complex-shape text. RayNet achieves impressive
+performance on existing curved text dataset (CTW1500) and quadrangle text
+dataset (ICDAR2015), which demonstrate its superiority against several
+state-of-the-art methods.",0.359438616,107.581488,0
+2,,,transformer-based model for text summarization.,tfidf_fullscan,6,16196,Text similarity analysis for evaluation of descriptive answers,"Keeping in mind the necessity of intelligent system in educational sector,
+this paper proposes a text analysis based automated approach for automatic
+evaluation of the descriptive answers in an examination. In particular, the
+research focuses on the use of intelligent concepts of Natural Language
+Processing and Data Mining for computer aided examination evaluation system.
+The paper present an architecture for fair evaluation of answer sheet. In this
+architecture, the examiner creates a sample answer sheet for given sets of
+question. By using the concept of text summarization, text semantics and
+keywords summarization, the final score for each answer is calculated. The text
+similarity model is based on Siamese Manhattan LSTM (MaLSTM). The results of
+this research were compared to manually graded assignments and other existing
+system. This approach was found to be very efficient in order to be implemented
+in an institution or in an university.",0.358774029,107.581488,1
+2,,,transformer-based model for text summarization.,tfidf_fullscan,7,27690,"Read, Highlight and Summarize: A Hierarchical Neural Semantic Encoder-based Approach","Traditional sequence-to-sequence (seq2seq) models and other variations of the
+attention-mechanism such as hierarchical attention have been applied to the
+text summarization problem. Though there is a hierarchy in the way humans use
+language by forming paragraphs from sentences and sentences from words,
+hierarchical models have usually not worked that much better than their
+traditional seq2seq counterparts. This effect is mainly because either the
+hierarchical attention mechanisms are too sparse using hard attention or noisy
+using soft attention. In this paper, we propose a method based on extracting
+the highlights of a document; a key concept that is conveyed in a few
+sentences. In a typical text summarization dataset consisting of documents that
+are 800 tokens in length (average), capturing long-term dependencies is very
+important, e.g., the last sentence can be grouped with the first sentence of a
+document to form a summary. LSTMs (Long Short-Term Memory) proved useful for
+machine translation. However, they often fail to capture long-term dependencies
+while modeling long sequences. To address these issues, we have adapted Neural
+Semantic Encoders (NSE) to text summarization, a class of memory-augmented
+neural networks by improving its functionalities and proposed a novel
+hierarchical NSE that outperforms similar previous models significantly. The
+quality of summarization was improved by augmenting linguistic factors, namely
+lemma, and Part-of-Speech (PoS) tags, to each word in the dataset for improved
+vocabulary coverage and generalization. The hierarchical NSE model on factored
+dataset outperformed the state-of-the-art by nearly 4 ROUGE points. We further
+designed and used the first GPU-based self-critical Reinforcement Learning
+model.",0.348909444,107.581488,1
+2,,,transformer-based model for text summarization.,tfidf_fullscan,8,33131,Meta Learning for Task-Driven Video Summarization,"Existing video summarization approaches mainly concentrate on sequential or
+structural characteristic of video data. However, they do not pay enough
+attention to the video summarization task itself. In this paper, we propose a
+meta learning method for performing task-driven video summarization, denoted by
+MetaL-TDVS, to explicitly explore the video summarization mechanism among
+summarizing processes on different videos. Particularly, MetaL-TDVS aims to
+excavate the latent mechanism for summarizing video by reformulating video
+summarization as a meta learning problem and promote generalization ability of
+the trained model. MetaL-TDVS regards summarizing each video as a single task
+to make better use of the experience and knowledge learned from processes of
+summarizing other videos to summarize new ones. Furthermore, MetaL-TDVS updates
+models via a two-fold back propagation which forces the model optimized on one
+video to obtain high accuracy on another video in every training step.
+Extensive experiments on benchmark datasets demonstrate the superiority and
+better generalization ability of MetaL-TDVS against several state-of-the-art
+methods.",0.340000655,107.581488,0
+2,,,transformer-based model for text summarization.,tfidf_fullscan,9,12757,Multi-Image Summarization: Textual Summary from a Set of Cohesive Images,"Multi-sentence summarization is a well studied problem in NLP, while
+generating image descriptions for a single image is a well studied problem in
+Computer Vision. However, for applications such as image cluster labeling or
+web page summarization, summarizing a set of images is also a useful and
+challenging task. This paper proposes the new task of multi-image
+summarization, which aims to generate a concise and descriptive textual summary
+given a coherent set of input images. We propose a model that extends the
+image-captioning Transformer-based architecture for single image to
+multi-image. A dense average image feature aggregation network allows the model
+to focus on a coherent subset of attributes across the input images. We explore
+various input representations to the Transformer network and empirically show
+that aggregated image features are superior to individual image embeddings. We
+additionally show that the performance of the model is further improved by
+pretraining the model parameters on a single-image captioning task, which
+appears to be particularly effective in eliminating hallucinations in the
+output.",0.335516113,107.581488,1
+2,,,transformer-based model for text summarization.,tfidf_fullscan,10,13161,Text Perceptron: Towards End-to-End Arbitrary-Shaped Text Spotting,"Many approaches have recently been proposed to detect irregular scene text
+and achieved promising results. However, their localization results may not
+well satisfy the following text recognition part mainly because of two reasons:
+1) recognizing arbitrary shaped text is still a challenging task, and 2)
+prevalent non-trainable pipeline strategies between text detection and text
+recognition will lead to suboptimal performances. To handle this
+incompatibility problem, in this paper we propose an end-to-end trainable text
+spotting approach named Text Perceptron. Concretely, Text Perceptron first
+employs an efficient segmentation-based text detector that learns the latent
+text reading order and boundary information. Then a novel Shape Transform
+Module (abbr. STM) is designed to transform the detected feature regions into
+regular morphologies without extra parameters. It unites text detection and the
+following recognition part into a whole framework, and helps the whole network
+achieve global optimization. Experiments show that our method achieves
+competitive performance on two standard text benchmarks, i.e., ICDAR 2013 and
+ICDAR 2015, and also obviously outperforms existing methods on irregular text
+benchmarks SCUT-CTW1500 and Total-Text.",0.327448501,107.581488,0
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,1,25051,Fully Autonomous Real-World Reinforcement Learning for Mobile Manipulation,"We study how robots can autonomously learn skills that require a combination
+of navigation and grasping. While reinforcement learning in principle provides
+for automated robotic skill learning, in practice reinforcement learning in the
+real world is challenging and often requires extensive instrumentation and
+supervision. Our aim is to devise a robotic reinforcement learning system for
+learning navigation and manipulation together, in an autonomous way without
+human intervention, enabling continual learning under realistic assumptions.
+Our proposed system, ReLMM, can learn continuously on a real-world platform
+without any environment instrumentation, without human intervention, and
+without access to privileged information, such as maps, objects positions, or a
+global view of the environment. Our method employs a modularized policy with
+components for manipulation and navigation, where manipulation policy
+uncertainty drives exploration for the navigation controller, and the
+manipulation module provides rewards for navigation. We evaluate our method on
+a room cleanup task, where the robot must navigate to and pick up items
+scattered on the floor. After a grasp curriculum training phase, ReLMM can
+learn navigation and grasping together fully automatically, in around 40 hours
+of autonomous real-world training.",0.6277,404.847264,1
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,2,28942,Multi-Goal Reinforcement Learning: Challenging Robotics Environments and Request for Research,"The purpose of this technical report is two-fold. First of all, it introduces
+a suite of challenging continuous control tasks (integrated with OpenAI Gym)
+based on currently existing robotics hardware. The tasks include pushing,
+sliding and pick & place with a Fetch robotic arm as well as in-hand object
+manipulation with a Shadow Dexterous Hand. All tasks have sparse binary rewards
+and follow a Multi-Goal Reinforcement Learning (RL) framework in which an agent
+is told what to do using an additional input.
+  The second part of the paper presents a set of concrete research ideas for
+improving RL algorithms, most of which are related to Multi-Goal RL and
+Hindsight Experience Replay.",0.6232,404.847264,1
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,3,24857,Lifelong Robotic Reinforcement Learning by Retaining Experiences,"Multi-task learning ideally allows robots to acquire a diverse repertoire of
+useful skills. However, many multi-task reinforcement learning efforts assume
+the robot can collect data from all tasks at all times. In reality, the tasks
+that the robot learns arrive sequentially, depending on the user and the
+robot's current environment. In this work, we study a practical sequential
+multi-task RL problem that is motivated by the practical constraints of
+physical robotic systems, and derive an approach that effectively leverages the
+data and policies learned for previous tasks to cumulatively grow the robot's
+skill-set. In a series of simulated robotic manipulation experiments, our
+approach requires less than half the samples than learning each task from
+scratch, while avoiding impractical round-robin data collection. On a Franka
+Emika Panda robot arm, our approach incrementally learns ten challenging tasks,
+including bottle capping and block insertion.",0.6197,404.847264,1
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,4,26811,Learning Force Control for Contact-rich Manipulation Tasks with Rigid Position-controlled Robots,"Reinforcement Learning (RL) methods have been proven successful in solving
+manipulation tasks autonomously. However, RL is still not widely adopted on
+real robotic systems because working with real hardware entails additional
+challenges, especially when using rigid position-controlled manipulators. These
+challenges include the need for a robust controller to avoid undesired
+behavior, that risk damaging the robot and its environment, and constant
+supervision from a human operator. The main contributions of this work are,
+first, we proposed a learning-based force control framework combining RL
+techniques with traditional force control. Within said control scheme, we
+implemented two different conventional approaches to achieve force control with
+position-controlled robots; one is a modified parallel position/force control,
+and the other is an admittance control. Secondly, we empirically study both
+control schemes when used as the action space of the RL agent. Thirdly, we
+developed a fail-safe mechanism for safely training an RL agent on manipulation
+tasks using a real rigid robot manipulator. The proposed methods are validated
+on simulation and a real robot, an UR3 e-series robotic arm.",0.6118,404.847264,1
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,5,24991,Diversity-based Trajectory and Goal Selection with Hindsight Experience Replay,"Hindsight experience replay (HER) is a goal relabelling technique typically
+used with off-policy deep reinforcement learning algorithms to solve
+goal-oriented tasks; it is well suited to robotic manipulation tasks that
+deliver only sparse rewards. In HER, both trajectories and transitions are
+sampled uniformly for training. However, not all of the agent's experiences
+contribute equally to training, and so naive uniform sampling may lead to
+inefficient learning. In this paper, we propose diversity-based trajectory and
+goal selection with HER (DTGSH). Firstly, trajectories are sampled according to
+the diversity of the goal states as modelled by determinantal point processes
+(DPPs). Secondly, transitions with diverse goal states are selected from the
+trajectories by using k-DPPs. We evaluate DTGSH on five challenging robotic
+manipulation tasks in simulated robot environments, where we show that our
+method can learn more quickly and reach higher performance than other
+state-of-the-art approaches on all tasks.",0.6113,404.847264,1
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,6,27133,The Ingredients of Real-World Robotic Reinforcement Learning,"The success of reinforcement learning for real world robotics has been, in
+many cases limited to instrumented laboratory scenarios, often requiring
+arduous human effort and oversight to enable continuous learning. In this work,
+we discuss the elements that are needed for a robotic learning system that can
+continually and autonomously improve with data collected in the real world. We
+propose a particular instantiation of such a system, using dexterous
+manipulation as our case study. Subsequently, we investigate a number of
+challenges that come up when learning without instrumentation. In such
+settings, learning must be feasible without manually designed resets, using
+only on-board perception, and without hand-engineered reward functions. We
+propose simple and scalable solutions to these challenges, and then demonstrate
+the efficacy of our proposed system on a set of dexterous robotic manipulation
+tasks, providing an in-depth analysis of the challenges associated with this
+learning paradigm. We demonstrate that our complete system can learn without
+any human intervention, acquiring a variety of vision-based skills with a
+real-world three-fingered hand. Results and videos can be found at
+https://sites.google.com/view/realworld-rl/",0.6112,404.847264,0
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,7,27070,Energy-Based Hindsight Experience Prioritization,"In Hindsight Experience Replay (HER), a reinforcement learning agent is
+trained by treating whatever it has achieved as virtual goals. However, in
+previous work, the experience was replayed at random, without considering which
+episode might be the most valuable for learning. In this paper, we develop an
+energy-based framework for prioritizing hindsight experience in robotic
+manipulation tasks. Our approach is inspired by the work-energy principle in
+physics. We define a trajectory energy function as the sum of the transition
+energy of the target object over the trajectory. We hypothesize that replaying
+episodes that have high trajectory energy is more effective for reinforcement
+learning in robotics. To verify our hypothesis, we designed a framework for
+hindsight experience prioritization based on the trajectory energy of goal
+states. The trajectory energy function takes the potential, kinetic, and
+rotational energy into consideration. We evaluate our Energy-Based
+Prioritization (EBP) approach on four challenging robotic manipulation tasks in
+simulation. Our empirical results show that our proposed method surpasses
+state-of-the-art approaches in terms of both performance and sample-efficiency
+on all four tasks, without increasing computational time. A video showing
+experimental results is available at https://youtu.be/jtsF2tTeUGQ",0.6065,404.847264,1
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,8,28552,QT-Opt: Scalable Deep Reinforcement Learning for Vision-Based Robotic Manipulation,"In this paper, we study the problem of learning vision-based dynamic
+manipulation skills using a scalable reinforcement learning approach. We study
+this problem in the context of grasping, a longstanding challenge in robotic
+manipulation. In contrast to static learning behaviors that choose a grasp
+point and then execute the desired grasp, our method enables closed-loop
+vision-based control, whereby the robot continuously updates its grasp strategy
+based on the most recent observations to optimize long-horizon grasp success.
+To that end, we introduce QT-Opt, a scalable self-supervised vision-based
+reinforcement learning framework that can leverage over 580k real-world grasp
+attempts to train a deep neural network Q-function with over 1.2M parameters to
+perform closed-loop, real-world grasping that generalizes to 96% grasp success
+on unseen objects. Aside from attaining a very high success rate, our method
+exhibits behaviors that are quite distinct from more standard grasping systems:
+using only RGB vision-based perception from an over-the-shoulder camera, our
+method automatically learns regrasping strategies, probes objects to find the
+most effective grasps, learns to reposition objects and perform other
+non-prehensile pre-grasp manipulations, and responds dynamically to
+disturbances and perturbations.",0.606,404.847264,1
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,9,29285,Benchmarking Deep Reinforcement Learning for Continuous Control,"Recently, researchers have made significant progress combining the advances
+in deep learning for learning feature representations with reinforcement
+learning. Some notable examples include training agents to play Atari games
+based on raw pixel data and to acquire advanced manipulation skills using raw
+sensory inputs. However, it has been difficult to quantify progress in the
+domain of continuous control due to the lack of a commonly adopted benchmark.
+In this work, we present a benchmark suite of continuous control tasks,
+including classic tasks like cart-pole swing-up, tasks with very high state and
+action dimensionality such as 3D humanoid locomotion, tasks with partial
+observations, and tasks with hierarchical structure. We report novel findings
+based on the systematic evaluation of a range of implemented reinforcement
+learning algorithms. Both the benchmark and reference implementations are
+released at https://github.com/rllab/rllab in order to facilitate experimental
+reproducibility and to encourage adoption by other researchers.",0.6037,404.847264,1
+3,,,reinforcement learning approach for robotic manipulation tasks,hybrid_clustered_faiss,10,3480,"S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning","State representation learning aims at learning compact representations from
+raw observations in robotics and control applications. Approaches used for this
+objective are auto-encoders, learning forward models, inverse dynamics or
+learning using generic priors on the state characteristics. However, the
+diversity in applications and methods makes the field lack standard evaluation
+datasets, metrics and tasks. This paper provides a set of environments, data
+generators, robotic control tasks, metrics and tools to facilitate iterative
+state representation learning and evaluation in reinforcement learning
+settings.",0.602,404.847264,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,1,28942,Multi-Goal Reinforcement Learning: Challenging Robotics Environments and Request for Research,"The purpose of this technical report is two-fold. First of all, it introduces
+a suite of challenging continuous control tasks (integrated with OpenAI Gym)
+based on currently existing robotics hardware. The tasks include pushing,
+sliding and pick & place with a Fetch robotic arm as well as in-hand object
+manipulation with a Shadow Dexterous Hand. All tasks have sparse binary rewards
+and follow a Multi-Goal Reinforcement Learning (RL) framework in which an agent
+is told what to do using an additional input.
+  The second part of the paper presents a set of concrete research ideas for
+improving RL algorithms, most of which are related to Multi-Goal RL and
+Hindsight Experience Replay.",0.790090322,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,2,26811,Learning Force Control for Contact-rich Manipulation Tasks with Rigid Position-controlled Robots,"Reinforcement Learning (RL) methods have been proven successful in solving
+manipulation tasks autonomously. However, RL is still not widely adopted on
+real robotic systems because working with real hardware entails additional
+challenges, especially when using rigid position-controlled manipulators. These
+challenges include the need for a robust controller to avoid undesired
+behavior, that risk damaging the robot and its environment, and constant
+supervision from a human operator. The main contributions of this work are,
+first, we proposed a learning-based force control framework combining RL
+techniques with traditional force control. Within said control scheme, we
+implemented two different conventional approaches to achieve force control with
+position-controlled robots; one is a modified parallel position/force control,
+and the other is an admittance control. Secondly, we empirically study both
+control schemes when used as the action space of the RL agent. Thirdly, we
+developed a fail-safe mechanism for safely training an RL agent on manipulation
+tasks using a real rigid robot manipulator. The proposed methods are validated
+on simulation and a real robot, an UR3 e-series robotic arm.",0.780398965,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,3,29285,Benchmarking Deep Reinforcement Learning for Continuous Control,"Recently, researchers have made significant progress combining the advances
+in deep learning for learning feature representations with reinforcement
+learning. Some notable examples include training agents to play Atari games
+based on raw pixel data and to acquire advanced manipulation skills using raw
+sensory inputs. However, it has been difficult to quantify progress in the
+domain of continuous control due to the lack of a commonly adopted benchmark.
+In this work, we present a benchmark suite of continuous control tasks,
+including classic tasks like cart-pole swing-up, tasks with very high state and
+action dimensionality such as 3D humanoid locomotion, tasks with partial
+observations, and tasks with hierarchical structure. We report novel findings
+based on the systematic evaluation of a range of implemented reinforcement
+learning algorithms. Both the benchmark and reference implementations are
+released at https://github.com/rllab/rllab in order to facilitate experimental
+reproducibility and to encourage adoption by other researchers.",0.779358029,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,4,28914,Learning to Run challenge solutions: Adapting reinforcement learning methods for neuromusculoskeletal environments,"In the NIPS 2017 Learning to Run challenge, participants were tasked with
+building a controller for a musculoskeletal model to make it run as fast as
+possible through an obstacle course. Top participants were invited to describe
+their algorithms. In this work, we present eight solutions that used deep
+reinforcement learning approaches, based on algorithms such as Deep
+Deterministic Policy Gradient, Proximal Policy Optimization, and Trust Region
+Policy Optimization. Many solutions use similar relaxations and heuristics,
+such as reward shaping, frame skipping, discretization of the action space,
+symmetry, and policy blending. However, each of the eight teams implemented
+different modifications of the known algorithms.",0.778864384,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,5,3480,"S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning","State representation learning aims at learning compact representations from
+raw observations in robotics and control applications. Approaches used for this
+objective are auto-encoders, learning forward models, inverse dynamics or
+learning using generic priors on the state characteristics. However, the
+diversity in applications and methods makes the field lack standard evaluation
+datasets, metrics and tasks. This paper provides a set of environments, data
+generators, robotic control tasks, metrics and tools to facilitate iterative
+state representation learning and evaluation in reinforcement learning
+settings.",0.777803481,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,6,28975,Multi-task Learning for Continuous Control,"Reliable and effective multi-task learning is a prerequisite for the
+development of robotic agents that can quickly learn to accomplish related,
+everyday tasks. However, in the reinforcement learning domain, multi-task
+learning has not exhibited the same level of success as in other domains, such
+as computer vision. In addition, most reinforcement learning research on
+multi-task learning has been focused on discrete action spaces, which are not
+used for robotic control in the real-world. In this work, we apply multi-task
+learning methods to continuous action spaces and benchmark their performance on
+a series of simulated continuous control tasks. Most notably, we show that
+multi-task learning outperforms our baselines and alternative knowledge sharing
+methods.",0.766059697,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,7,27752,Creativity in Robot Manipulation with Deep Reinforcement Learning,"Deep Reinforcement Learning (DRL) has emerged as a powerful control technique
+in robotic science. In contrast to control theory, DRL is more robust in the
+thorough exploration of the environment. This capability of DRL generates more
+human-like behaviour and intelligence when applied to the robots. To explore
+this capability, we designed challenging manipulation tasks to observe robots
+strategy to handle complex scenarios. We observed that robots not only perform
+tasks successfully, but also transpire a creative and non intuitive solution.
+We also observed robot's persistence in tasks that are close to success and its
+striking ability in discerning to continue or give up.",0.765861869,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,8,28960,Hindsight Experience Replay,"Dealing with sparse rewards is one of the biggest challenges in Reinforcement
+Learning (RL). We present a novel technique called Hindsight Experience Replay
+which allows sample-efficient learning from rewards which are sparse and binary
+and therefore avoid the need for complicated reward engineering. It can be
+combined with an arbitrary off-policy RL algorithm and may be seen as a form of
+implicit curriculum.
+  We demonstrate our approach on the task of manipulating objects with a
+robotic arm. In particular, we run experiments on three different tasks:
+pushing, sliding, and pick-and-place, in each case using only binary rewards
+indicating whether or not the task is completed. Our ablation studies show that
+Hindsight Experience Replay is a crucial ingredient which makes training
+possible in these challenging environments. We show that our policies trained
+on a physics simulation can be deployed on a physical robot and successfully
+complete the task.",0.765559614,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,9,26769,Predictive Coding for Boosting Deep Reinforcement Learning with Sparse Rewards,"While recent progress in deep reinforcement learning has enabled robots to
+learn complex behaviors, tasks with long horizons and sparse rewards remain an
+ongoing challenge. In this work, we propose an effective reward shaping method
+through predictive coding to tackle sparse reward problems. By learning
+predictive representations offline and using these representations for reward
+shaping, we gain access to reward signals that understand the structure and
+dynamics of the environment. In particular, our method achieves better learning
+by providing reward signals that 1) understand environment dynamics 2)
+emphasize on features most useful for learning 3) resist noise in learned
+representations through reward accumulation. We demonstrate the usefulness of
+this approach in different domains ranging from robotic manipulation to
+navigation, and we show that reward signals produced through predictive coding
+are as effective for learning as hand-crafted rewards.",0.765283108,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,semantic_fullscan,10,24857,Lifelong Robotic Reinforcement Learning by Retaining Experiences,"Multi-task learning ideally allows robots to acquire a diverse repertoire of
+useful skills. However, many multi-task reinforcement learning efforts assume
+the robot can collect data from all tasks at all times. In reality, the tasks
+that the robot learns arrive sequentially, depending on the user and the
+robot's current environment. In this work, we study a practical sequential
+multi-task RL problem that is motivated by the practical constraints of
+physical robotic systems, and derive an approach that effectively leverages the
+data and policies learned for previous tasks to cumulatively grow the robot's
+skill-set. In a series of simulated robotic manipulation experiments, our
+approach requires less than half the samples than learning each task from
+scratch, while avoiding impractical round-robin data collection. On a Franka
+Emika Panda robot arm, our approach incrementally learns ten challenging tasks,
+including bottle capping and block insertion.",0.764537036,301.020536,1
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,1,26891,Reinforcement Learning for Robotic Manipulation using Simulated Locomotion Demonstrations,"Learning robotic manipulation through reinforcement learning (RL) using only
+sparse reward signals is still considered a largely unsolved problem.
+Leveraging human demonstrations can make the learning process more sample
+efficient, but obtaining high-quality demonstrations can be costly or
+unfeasible. In this paper we propose a novel approach that introduces
+object-level demonstrations, i.e. examples of where the objects should be at
+any state. These demonstrations are generated automatically through RL hence
+require no expert knowledge. We observe that, during a manipulation task, an
+object is moved from an initial to a final position. When seen from the point
+of view of the object being manipulated, this induces a locomotion task that
+can be decoupled from the manipulation task and learnt through a
+physically-realistic simulator. The resulting object-level trajectories, called
+simulated locomotion demonstrations (SLDs), are then leveraged to define
+auxiliary rewards that are used to learn the manipulation policy. The proposed
+approach has been evaluated on 13 tasks of increasing complexity, and has been
+demonstrated to achieve higher success rate and faster learning rates compared
+to alternative algorithms. SLDs are especially beneficial for tasks like
+multi-object stacking and non-rigid object manipulation.",0.354763594,86.910931,1
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,2,25051,Fully Autonomous Real-World Reinforcement Learning for Mobile Manipulation,"We study how robots can autonomously learn skills that require a combination
+of navigation and grasping. While reinforcement learning in principle provides
+for automated robotic skill learning, in practice reinforcement learning in the
+real world is challenging and often requires extensive instrumentation and
+supervision. Our aim is to devise a robotic reinforcement learning system for
+learning navigation and manipulation together, in an autonomous way without
+human intervention, enabling continual learning under realistic assumptions.
+Our proposed system, ReLMM, can learn continuously on a real-world platform
+without any environment instrumentation, without human intervention, and
+without access to privileged information, such as maps, objects positions, or a
+global view of the environment. Our method employs a modularized policy with
+components for manipulation and navigation, where manipulation policy
+uncertainty drives exploration for the navigation controller, and the
+manipulation module provides rewards for navigation. We evaluate our method on
+a room cleanup task, where the robot must navigate to and pick up items
+scattered on the floor. After a grasp curriculum training phase, ReLMM can
+learn navigation and grasping together fully automatically, in around 40 hours
+of autonomous real-world training.",0.353137935,86.910931,1
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,3,25799,An FPGA-Based On-Device Reinforcement Learning Approach using Online Sequential Learning,"DQN (Deep Q-Network) is a method to perform Q-learning for reinforcement
+learning using deep neural networks. DQNs require a large buffer and batch
+processing for an experience replay and rely on a backpropagation based
+iterative optimization, making them difficult to be implemented on
+resource-limited edge devices. In this paper, we propose a lightweight
+on-device reinforcement learning approach for low-cost FPGA devices. It
+exploits a recently proposed neural-network based on-device learning approach
+that does not rely on the backpropagation method but uses OS-ELM (Online
+Sequential Extreme Learning Machine) based training algorithm. In addition, we
+propose a combination of L2 regularization and spectral normalization for the
+on-device reinforcement learning so that output values of the neural network
+can be fit into a certain range and the reinforcement learning becomes stable.
+The proposed reinforcement learning approach is designed for PYNQ-Z1 board as a
+low-cost FPGA platform. The evaluation results using OpenAI Gym demonstrate
+that the proposed algorithm and its FPGA implementation complete a CartPole-v0
+task 29.77x and 89.40x faster than a conventional DQN-based approach when the
+number of hidden-layer nodes is 64.",0.342285434,86.910931,0
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,4,28932,Composable Deep Reinforcement Learning for Robotic Manipulation,"Model-free deep reinforcement learning has been shown to exhibit good
+performance in domains ranging from video games to simulated robotic
+manipulation and locomotion. However, model-free methods are known to perform
+poorly when the interaction time with the environment is limited, as is the
+case for most real-world robotic tasks. In this paper, we study how maximum
+entropy policies trained using soft Q-learning can be applied to real-world
+robotic manipulation. The application of this method to real-world manipulation
+is facilitated by two important features of soft Q-learning. First, soft
+Q-learning can learn multimodal exploration strategies by learning policies
+represented by expressive energy-based models. Second, we show that policies
+learned with soft Q-learning can be composed to create new policies, and that
+the optimality of the resulting policy can be bounded in terms of the
+divergence between the composed policies. This compositionality provides an
+especially valuable tool for real-world manipulation, where constructing new
+policies by composing existing skills can provide a large gain in efficiency
+over training from scratch. Our experimental evaluation demonstrates that soft
+Q-learning is substantially more sample efficient than prior model-free deep
+reinforcement learning methods, and that compositionality can be performed for
+both simulated and real-world tasks.",0.333094491,86.910931,1
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,5,26207,A Survey on Reinforcement Learning for Combinatorial Optimization,"This paper gives a detailed review of reinforcement learning in combinatorial
+optimization, introduces the history of combinatorial optimization starting in
+the 1960s, and compares it with the reinforcement learning algorithms in recent
+years. We explicitly look at a famous combinatorial problem known as the
+Traveling Salesperson Problem (TSP). We compare the approach of the modern
+reinforcement learning algorithms on TSP with an approach published in 1970.
+Then, we discuss the similarities between these algorithms and how the approach
+of reinforcement learning changes due to the evolution of machine learning
+techniques and computing power. We also mention the deep learning approach on
+the TSP, which is named Deep Reinforcement Learning. We argue that deep
+learning is a generic approach that can be integrated with traditional
+reinforcement learning algorithms and optimize the outcomes of the TSP.",0.330636162,86.910931,0
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,6,29262,One-Shot Learning of Manipulation Skills with Online Dynamics Adaptation and Neural Network Priors,"One of the key challenges in applying reinforcement learning to complex
+robotic control tasks is the need to gather large amounts of experience in
+order to find an effective policy for the task at hand. Model-based
+reinforcement learning can achieve good sample efficiency, but requires the
+ability to learn a model of the dynamics that is good enough to learn an
+effective policy. In this work, we develop a model-based reinforcement learning
+algorithm that combines prior knowledge from previous tasks with online
+adaptation of the dynamics model. These two ingredients enable highly
+sample-efficient learning even in regimes where estimating the true dynamics is
+very difficult, since the online model adaptation allows the method to locally
+compensate for unmodeled variation in the dynamics. We encode the prior
+experience into a neural network dynamics model, adapt it online by
+progressively refitting a local linear model of the dynamics, and use model
+predictive control to plan under these dynamics. Our experimental results show
+that this approach can be used to solve a variety of complex robotic
+manipulation tasks in just a single attempt, using prior data from other
+manipulation behaviors.",0.31196945,86.910931,1
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,7,20270,Understanding Contexts Inside Robot and Human Manipulation Tasks through a Vision-Language Model and Ontology System in a Video Stream,"Manipulation tasks in daily life, such as pouring water, unfold intentionally
+under specialized manipulation contexts. Being able to process contextual
+knowledge in these Activities of Daily Living (ADLs) over time can help us
+understand manipulation intentions, which are essential for an intelligent
+robot to transition smoothly between various manipulation actions. In this
+paper, to model the intended concepts of manipulation, we present a vision
+dataset under a strictly constrained knowledge domain for both robot and human
+manipulations, where manipulation concepts and relations are stored by an
+ontology system in a taxonomic manner. Furthermore, we propose a scheme to
+generate a combination of visual attentions and an evolving knowledge graph
+filled with commonsense knowledge. Our scheme works with real-world camera
+streams and fuses an attention-based Vision-Language model with the ontology
+system. The experimental results demonstrate that the proposed scheme can
+successfully represent the evolution of an intended object manipulation
+procedure for both robots and humans. The proposed scheme allows the robot to
+mimic human-like intentional behaviors by watching real-time videos. We aim to
+develop this scheme further for real-world robot intelligence in Human-Robot
+Interaction.",0.300933837,86.910931,1
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,8,26374,On the convergence of projective-simulation-based reinforcement learning in Markov decision processes,"In recent years, the interest in leveraging quantum effects for enhancing
+machine learning tasks has significantly increased. Many algorithms speeding up
+supervised and unsupervised learning were established. The first framework in
+which ways to exploit quantum resources specifically for the broader context of
+reinforcement learning were found is projective simulation. Projective
+simulation presents an agent-based reinforcement learning approach designed in
+a manner which may support quantum walk-based speed-ups. Although classical
+variants of projective simulation have been benchmarked against common
+reinforcement learning algorithms, very few formal theoretical analyses have
+been provided for its performance in standard learning scenarios. In this
+paper, we provide a detailed formal discussion of the properties of this model.
+Specifically, we prove that one version of the projective simulation model,
+understood as a reinforcement learning approach, converges to optimal behavior
+in a large class of Markov decision processes. This proof shows that a
+physically-inspired approach to reinforcement learning can guarantee to
+converge.",0.299979484,86.910931,0
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,9,24991,Diversity-based Trajectory and Goal Selection with Hindsight Experience Replay,"Hindsight experience replay (HER) is a goal relabelling technique typically
+used with off-policy deep reinforcement learning algorithms to solve
+goal-oriented tasks; it is well suited to robotic manipulation tasks that
+deliver only sparse rewards. In HER, both trajectories and transitions are
+sampled uniformly for training. However, not all of the agent's experiences
+contribute equally to training, and so naive uniform sampling may lead to
+inefficient learning. In this paper, we propose diversity-based trajectory and
+goal selection with HER (DTGSH). Firstly, trajectories are sampled according to
+the diversity of the goal states as modelled by determinantal point processes
+(DPPs). Secondly, transitions with diverse goal states are selected from the
+trajectories by using k-DPPs. We evaluate DTGSH on five challenging robotic
+manipulation tasks in simulated robot environments, where we show that our
+method can learn more quickly and reach higher performance than other
+state-of-the-art approaches on all tasks.",0.299246086,86.910931,1
+3,,,reinforcement learning approach for robotic manipulation tasks,tfidf_fullscan,10,27517,Exploration via Hindsight Goal Generation,"Goal-oriented reinforcement learning has recently been a practical framework
+for robotic manipulation tasks, in which an agent is required to reach a
+certain goal defined by a function on the state space. However, the sparsity of
+such reward definition makes traditional reinforcement learning algorithms very
+inefficient. Hindsight Experience Replay (HER), a recent advance, has greatly
+improved sample efficiency and practical applicability for such problems. It
+exploits previous replays by constructing imaginary goals in a simple heuristic
+way, acting like an implicit curriculum to alleviate the challenge of sparse
+reward signal. In this paper, we introduce Hindsight Goal Generation (HGG), a
+novel algorithmic framework that generates valuable hindsight goals which are
+easy for an agent to achieve in the short term and are also potential for
+guiding the agent to reach the actual goal in the long term. We have
+extensively evaluated our goal generation algorithm on a number of robotic
+manipulation tasks and demonstrated substantially improvement over the original
+HER in terms of sample efficiency.",0.296315866,86.910931,1

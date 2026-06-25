@@ -1,0 +1,132 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontSize 12
+skinparam defaultFontName Arial
+
+' Define colors for different layers
+skinparam component {
+  BackgroundColor<<offline>> #F0F0F0
+  BorderColor<<offline>> #666666
+
+  BackgroundColor<<presentation>> #BBDEFB
+  BorderColor<<presentation>> #1976D2
+
+  BackgroundColor<<application>> #C8E6C9
+  BorderColor<<application>> #388E3C
+
+  BackgroundColor<<data>> #FFF9C4
+  BorderColor<<data>> #F57F17
+
+  BackgroundColor<<external>> #FFE0B2
+  BorderColor<<external>> #E64A19
+}
+
+' Actor
+actor "Researcher" as user
+
+' Offline Pipeline
+package "OFFLINE PROCESSING PIPELINE" <<offline>> {
+  component "Data\nIngestion" as ingestion
+  component "Text\nPreprocessing" as preprocess
+  component "Feature\nExtraction" as features
+  component "Clustering\nEngine" as clustering
+  component "Index\nBuilder" as indexing
+
+  database "Paper\nCorpus" as corpus
+
+  corpus -right-> ingestion
+  ingestion -right-> preprocess
+  preprocess -right-> features
+  features -right-> clustering
+  clustering -right-> indexing
+}
+
+' Online Pipeline
+rectangle "ONLINE PROCESSING PIPELINE" {
+
+  ' Tier 1: Presentation Layer
+  package "PRESENTATION LAYER" <<presentation>> {
+    component "Query\nInterface" as queryUI
+    component "Results\nDisplay" as displayUI
+    component "Interaction\nHandler" as interactionUI
+  }
+
+  ' Tier 2: Application Layer
+  package "APPLICATION LAYER" <<application>> {
+    component "Query\nOrchestrator" as orchestrator
+
+    rectangle "Processing Paths" {
+      component "Local\nRetrieval\nEngine" as localEngine
+      component "Web\nDiscovery\nEngine" as webEngine
+      component "Refinement\nEngine" as refineEngine
+    }
+  }
+
+  ' Tier 3: Data Layer
+  package "DATA LAYER" <<data>> {
+    database "Offline\nData Store" as offlineStore
+    database "Job\nQueue" as jobQueue
+    component "External\nData\nConnector" as connector
+  }
+
+  ' External System
+  cloud "External Paper\nDatabase" as externalDB <<external>>
+}
+
+' User interactions
+user --> queryUI : Submit Query
+displayUI --> user : View Results
+user --> interactionUI : Select & Refine
+
+' Presentation to Application
+queryUI --> orchestrator
+orchestrator --> displayUI
+interactionUI --> orchestrator
+
+' Application layer internal flow
+orchestrator --> localEngine : Path A\n(Sync)
+orchestrator --> webEngine : Path B\n(Async)
+orchestrator --> refineEngine : Path C\n(Sync)
+
+' Application to Data
+localEngine --> offlineStore : Retrieve
+webEngine --> jobQueue : Manage Jobs
+webEngine --> connector : Query
+refineEngine --> connector : Query
+
+' Data to External
+connector --> externalDB : API Calls
+
+' Offline to Online connection
+indexing ..> offlineStore : Populate
+offlineStore ..> localEngine : References
+
+' Notes for paths
+note right of localEngine
+  **Path A: Local Hybrid Search**
+  • Query encoding
+  • Cluster selection
+  • Similarity search
+  • Hybrid scoring
+  • Result ranking
+end note
+
+note right of webEngine
+  **Path B: Web Discovery**
+  • Asynchronous job creation
+  • External database query
+  • Status polling
+  • Result aggregation
+end note
+
+note right of refineEngine
+  **Path C: Refinement**
+  • Identifier resolution
+  • Recommendation query
+  • Result filtering
+  • Ranking
+end note
+
+@enduml

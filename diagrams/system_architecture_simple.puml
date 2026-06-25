@@ -1,0 +1,112 @@
+@startuml
+'Simple block-based system architecture (similar to reference images)
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontSize 11
+skinparam defaultFontName Arial
+
+title System Architecture - Hybrid Paper Recommendation System
+
+' Define custom colors
+!define OFFLINE_COLOR #F5F5F5
+!define PRESENTATION_COLOR #BBDEFB
+!define APPLICATION_COLOR #C8E6C9
+!define DATA_COLOR #FFF9C4
+!define EXTERNAL_COLOR #FFE0B2
+
+' User Actor
+actor "Researcher" as user #E0E0E0
+
+rectangle "SYSTEM" {
+
+  ' Offline Pipeline (Top)
+  package "OFFLINE PROCESSING PIPELINE" OFFLINE_COLOR {
+    [Data Ingestion\nModule] as ingest
+    [Text Processing\nModule] as preprocess
+    [Feature Extraction\nModule] as features
+    [Clustering\nModule] as cluster
+    [Index Builder\nModule] as index
+
+    database "Paper\nCorpus" as corpus
+
+    corpus -right-> ingest
+    ingest -right-> preprocess
+    preprocess -right-> features
+    features -right-> cluster
+    cluster -right-> index
+  }
+
+  ' Online Pipeline (Bottom)
+  rectangle "ONLINE PROCESSING PIPELINE" {
+
+    ' Tier 1
+    package "PRESENTATION LAYER" PRESENTATION_COLOR {
+      [Query\nInterface] as queryUI
+      [Results\nDisplay] as resultUI
+      [Interaction\nHandler] as interactUI
+    }
+
+    ' Tier 2
+    package "APPLICATION LAYER" APPLICATION_COLOR {
+      [Query\nOrchestrator] as orchestrator
+
+      rectangle "Processing Engines" {
+        [Local Retrieval\nEngine\n(Path A - Sync)] as pathA
+        [Web Discovery\nEngine\n(Path B - Async)] as pathB
+        [Refinement\nEngine\n(Path C - Sync)] as pathC
+      }
+    }
+
+    ' Tier 3
+    package "DATA LAYER" DATA_COLOR {
+      database "Offline\nData Store" as offlineDB
+      database "Job\nQueue" as jobQueue
+      [External Data\nConnector] as connector
+    }
+
+    ' External
+    cloud "External Paper\nDatabase" as externalDB EXTERNAL_COLOR
+  }
+}
+
+' User interactions
+user -down-> queryUI : Submit\nQuery
+resultUI -up-> user : View\nResults
+interactUI -up-> user : Refine
+
+' Tier 1 to Tier 2
+queryUI -down-> orchestrator
+orchestrator -up-> resultUI
+interactUI -down-> orchestrator
+
+' Tier 2 internal
+orchestrator -down-> pathA
+orchestrator -down-> pathB
+orchestrator -down-> pathC
+
+' Tier 2 to Tier 3
+pathA -down-> offlineDB : Retrieve
+pathB -down-> jobQueue : Queue
+pathB -down-> connector : Query
+pathC -down-> connector : Query
+
+' Tier 3 to External
+connector -right-> externalDB : API\nCalls
+
+' Offline to Online connection
+index .down.> offlineDB : Populate\nIndices
+
+' Add legend
+legend right
+  |= Color |= Layer |
+  | <back:OFFLINE_COLOR>   </back> | Offline Pipeline |
+  | <back:PRESENTATION_COLOR>   </back> | Presentation Layer |
+  | <back:APPLICATION_COLOR>   </back> | Application Layer |
+  | <back:DATA_COLOR>   </back> | Data Layer |
+  | <back:EXTERNAL_COLOR>   </back> | External Services |
+
+  ——— Synchronous flow
+  · · · Data population
+endlegend
+
+@enduml

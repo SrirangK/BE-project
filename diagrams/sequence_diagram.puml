@@ -1,0 +1,100 @@
+@startuml sequence_diagram
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+actor User
+participant "Frontend\n(React)" as FE
+participant "Backend\n(FastAPI)" as BE
+participant "Local\nRecommender" as LR
+participant "FAISS\nIndices" as FAISS
+participant "Job\nQueue" as JQ
+participant "Semantic\nScholar API" as S2
+
+== Section A: Local Hybrid Retrieval (Synchronous) ==
+
+User -> FE: Enter query "machine learning"\nand click Search
+activate FE
+FE -> BE: GET /api/recommend?query=ml&k=20
+activate BE
+
+BE -> LR: recommend_local(query, k)
+activate LR
+LR -> LR: Encode query\n(TF-IDF + SPECTER)
+LR -> LR: Select top-3 clusters\nby centroid similarity
+LR -> FAISS: search(query_embedding, k*5)
+activate FAISS
+FAISS --> LR: 100 candidates from\n3 clusters
+deactivate FAISS
+
+LR -> LR: Compute hybrid scores:\n0.70*semantic + 0.30*tfidf
+LR -> LR: Rank by score,\nremove duplicates
+LR --> BE: local_results\n[20 papers]
+deactivate LR
+
+BE --> FE: {sectionA: results,\njobId: "abc123"}
+deactivate BE
+FE --> User: Display Section A\nresults immediately
+deactivate FE
+
+== Section B: Web-based Discovery (Asynchronous) ==
+
+BE -> JQ: create_job(jobId="abc123",\nstatus="pending")
+activate JQ
+JQ --> BE: job created
+deactivate JQ
+
+BE -> S2: POST /api/v1/paper/search\n(async, non-blocking)
+activate S2
+BE -> JQ: update_job(status="running")
+
+loop Poll every 2 seconds
+  FE -> BE: GET /api/recommend/web-results\n?jobId=abc123
+  activate BE
+  BE -> JQ: get_job_status(jobId)
+  activate JQ
+  JQ --> BE: {status: "running"}
+  deactivate JQ
+  BE --> FE: {status: "running",\nresults: null}
+  deactivate BE
+end
+
+S2 --> BE: {papers: [20 web results]}
+deactivate S2
+BE -> JQ: update_job(status="completed",\nresults=web_papers)
+activate JQ
+deactivate JQ
+
+FE -> BE: GET /web-results?jobId=abc123
+activate BE
+BE -> JQ: get_job_results(jobId)
+activate JQ
+JQ --> BE: {status: "completed",\nresults: web_papers}
+deactivate JQ
+BE --> FE: {status: "completed",\nresults: web_papers}
+deactivate BE
+FE --> User: Display Section B\nresults
+
+== Section C: Interactive Refinement ==
+
+User -> FE: Select 2 papers via checkboxes\nClick "Refine Recommendations"
+activate FE
+FE -> BE: POST /api/recommend/refine-selected\n{papers: [selected1, selected2]}
+activate BE
+
+BE -> BE: resolve_identifiers():\nURL/DOI/arXiv/Title matching
+BE -> S2: GET /paper/search?query=title\n(for identifier resolution)
+activate S2
+S2 --> BE: {paperId: "s2_id_1"}
+deactivate S2
+
+BE -> S2: POST /api/v1/paper/\nrecommendations\n{paperIds: ["s2_id_1", "s2_id_2"]}
+activate S2
+S2 --> BE: {recommendations:\n[refined_papers]}
+deactivate S2
+
+BE --> FE: {sectionC: refined_results}
+deactivate BE
+FE --> User: Display Section C\nrefined recommendations
+deactivate FE
+
+@enduml

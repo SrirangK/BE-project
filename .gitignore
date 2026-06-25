@@ -29,15 +29,3 @@ Thumbs.db
 node_modules/
 dist/
 build/
-
-# Artifacts / large files
-artifacts/
-*.npy
-*.pkl
-*.index
-faiss_clusters/
-sbert_cache/
-kmeans_model.pkl
-cluster_mappings.pkl
-sbert_embeddings.npy
-arxiv_cleaned.csv

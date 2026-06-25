@@ -1,0 +1,31 @@
+[
+  {
+    "query": "graph neural networks to molecular property prediction for drug discovery",
+    "relevant_titles": [
+      "Gated Graph Recursive Neural Networks for Molecular Property Prediction",
+      "Learn molecular representations from large-scale unlabeled molecules for drug discovery",
+      "MolCLR: Molecular Contrastive Learning of Representations via Graph Neural Networks",
+      "Learning Graph-Level Representation for Drug Discovery",
+      "On Graph Neural Network Ensembles for Large-Scale Molecular Property Prediction",
+      "Analyzing Learned Molecular Representations for Property Prediction"
+    ]
+  },
+  {
+    "query": "neural message passing for molecular graphs and property estimation",
+    "relevant_titles": [
+      "Gated Graph Recursive Neural Networks for Molecular Property Prediction",
+      "On Graph Neural Network Ensembles for Large-Scale Molecular Property Prediction",
+      "Analyzing Learned Molecular Representations for Property Prediction",
+      "Neural Message Passing on High Order Paths"
+    ]
+  },
+  {
+    "query": "representation learning of molecules for screening and drug discovery",
+    "relevant_titles": [
+      "Learn molecular representations from large-scale unlabeled molecules for drug discovery",
+      "MolCLR: Molecular Contrastive Learning of Representations via Graph Neural Networks",
+      "Learning Graph-Level Representation for Drug Discovery",
+      "MoFlow: An Invertible Flow Model for Generating Molecular Graphs"
+    ]
+  }
+]

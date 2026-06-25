@@ -26,7 +26,7 @@ services:
       dockerfile: Dockerfile
     container_name: paper_frontend
     ports:
-      - "3000:80"
+      - "5173:80"   # host 3000 was occupied; 5173 is in the backend CORS allowlist
     depends_on:
       - backend
     restart: unless-stopped

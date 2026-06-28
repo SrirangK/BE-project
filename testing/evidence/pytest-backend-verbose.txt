@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /app
+plugins: anyio-4.13.0
+collecting ... collected 10 items
+
+tests/test_integration.py::test_case_6_complete_local_recommendation_flow PASSED [ 10%]
+tests/test_integration.py::test_case_7_asynchronous_web_search_job_lifecycle PASSED [ 20%]
+tests/test_integration.py::test_case_8_paper_selection_and_refinement_seed_endpoint PASSED [ 30%]
+tests/test_integration.py::test_case_9_model_and_index_loading_under_30_seconds PASSED [ 40%]
+tests/test_integration.py::test_case_10_response_time_validation_under_500ms_median PASSED [ 50%]
+tests/test_whitebox.py::test_case_1_query_encoding_validation_shapes PASSED [ 60%]
+tests/test_whitebox.py::test_case_2_cluster_selection_returns_top_3_in_descending_similarity PASSED [ 70%]
+tests/test_whitebox.py::test_case_3_hybrid_scoring_weighted_average PASSED [ 80%]
+tests/test_whitebox.py::test_case_4_result_deduplication_keeps_unique_papers PASSED [ 90%]
+tests/test_whitebox.py::test_case_5_url_based_identifier_extraction PASSED [100%]
+
+============================== 10 passed in 9.08s ==============================
